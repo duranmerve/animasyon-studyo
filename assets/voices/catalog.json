@@ -1,0 +1,136 @@
+{
+ "omni-erkek-derin": {
+  "code": "O9",
+  "label": "Erkek, orta yaş, derin",
+  "engine": "omnivoice",
+  "ref": "omnivoice/erkek-derin.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-erkek-yasli": {
+  "code": "O10",
+  "label": "Erkek, yaşlı",
+  "engine": "omnivoice",
+  "ref": "omnivoice/erkek-yasli.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-kadin-genc": {
+  "code": "O1",
+  "label": "Kadın, genç",
+  "engine": "omnivoice",
+  "ref": "omnivoice/kadin-genc.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-kadin-yasli": {
+  "code": "O5",
+  "label": "Kadın, yaşlı",
+  "engine": "omnivoice",
+  "ref": "omnivoice/kadin-yasli.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-erkek-orta-yas-tiz": {
+  "code": "O32",
+  "label": "Erkek, orta yaş, tiz",
+  "engine": "omnivoice",
+  "ref": "omnivoice/erkek-orta-yas-tiz.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-erkek-yasli-derin": {
+  "code": "O33",
+  "label": "Erkek, yaşlı, çok derin",
+  "engine": "omnivoice",
+  "ref": "omnivoice/erkek-yasli-derin.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "omni-erkek-yasli-derin-2": {
+  "code": "O34",
+  "label": "Erkek, yaşlı, çok derin (2)",
+  "engine": "omnivoice",
+  "ref": "omnivoice/erkek-yasli-derin-2.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder.",
+  "num_step": 64
+ },
+ "supertonic-kadin-1": {
+  "code": "S1",
+  "label": "Kadın (Supertonic F1)",
+  "engine": "supertonic",
+  "voice_name": "F1"
+ },
+ "supertonic-kadin-2": {
+  "code": "S2",
+  "label": "Kadın (Supertonic F2)",
+  "engine": "supertonic",
+  "voice_name": "F2"
+ },
+ "supertonic-kadin-5": {
+  "code": "S5",
+  "label": "Kadın (Supertonic F5)",
+  "engine": "supertonic",
+  "voice_name": "F5"
+ },
+ "supertonic-erkek-1": {
+  "code": "S6",
+  "label": "Erkek (Supertonic M1)",
+  "engine": "supertonic",
+  "voice_name": "M1"
+ },
+ "supertonic-erkek-2": {
+  "code": "S7",
+  "label": "Erkek (Supertonic M2)",
+  "engine": "supertonic",
+  "voice_name": "M2"
+ },
+ "supertonic-erkek-5": {
+  "code": "S10",
+  "label": "Erkek (Supertonic M5)",
+  "engine": "supertonic",
+  "voice_name": "M5"
+ },
+ "chatterbox-kadin": {
+  "code": "C1",
+  "label": "Kadın (Chatterbox v2 kendi sesi)",
+  "engine": "chatterbox",
+  "model_version": "v2"
+ },
+ "chatterbox-kadin-genc": {
+  "code": "C2",
+  "label": "Kadın, genç (Chatterbox v2, O1 tınısı)",
+  "engine": "chatterbox",
+  "model_version": "v2",
+  "ref": "chatterbox/ref-kadin-genc.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder. Peki, bu minicik toz taneleri kâğıda nasıl yapışıyor? Hadi, birlikte yakından bakalım."
+ },
+ "chatterbox-erkek-derin": {
+  "code": "C5",
+  "label": "Erkek, derin (Chatterbox v2, O9 tınısı)",
+  "engine": "chatterbox",
+  "model_version": "v2",
+  "ref": "chatterbox/ref-erkek-derin.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder. Peki, bu minicik toz taneleri kâğıda nasıl yapışıyor? Hadi, birlikte yakından bakalım."
+ },
+ "chatterbox3-kadin": {
+  "code": "C6",
+  "label": "Kadın (Chatterbox v3 kendi sesi)",
+  "engine": "chatterbox",
+  "model_version": "v3"
+ },
+ "chatterbox3-erkek-derin": {
+  "code": "C9",
+  "label": "Erkek, derin (Chatterbox v3, O9 tınısı)",
+  "engine": "chatterbox",
+  "model_version": "v3",
+  "ref": "chatterbox/ref-erkek-derin.wav",
+  "ref_text": "Yazıcının kalbi, ışığa duyarlı bir tamburdur. Karanlıkta elektrik yükünü tutar, ışık gördüğü yerde ise bu yükü kaybeder. Peki, bu minicik toz taneleri kâğıda nasıl yapışıyor? Hadi, birlikte yakından bakalım."
+ },
+ "ema-kadin": {
+  "code": "E1",
+  "label": "Kadın, Türkçeye özel (EMA-TTS)",
+  "engine": "ema",
+  "model_dir": "ema_models/canberkkkkkk"
+ }
+}

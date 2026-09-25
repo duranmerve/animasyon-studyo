@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><title>Kapaklar · Spring Boot'un İçi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+</head><body><div id="root"></div>
+<script type="module">
+// YouTube covers: the channel kit (/_kit/kit.js) adds the shared identity; the hero is drawn here,
+// in this film's own language (drafting paper, paper-cut cards, amber proxy shells), weight on the right.
+import * as kit from '/_kit/kit.js';
+import { C, MONO, SANS, rr, card, text, arrow, pill, bean, stamp, terminal, rand } from './src/draw.js';
+
+const LIST = [
+  { id: 'sihir-yok', title: 'SİHİR *YOK*', accent: "Spring Boot'un içi, ağır çekimde" },
+  { id: 'iki-saniye', title: '*2 SANİYEDE* NE OLUYOR?', accent: 'SpringApplication.run() yavaş çekimde' },
+  { id: 'proxy-tuzagi', title: 'NEDEN *ÇALIŞMADI?*', accent: '@Transactional ve proxy tuzağı' },
+  { id: 'bean-dogumu', title: "BİR BEAN'İN *DOĞUMU*", accent: 'Konteyner, proxy, otomatik yapılandırma' },
+  { id: 'istek', title: "SPRING BOOT'UN *İÇİ*", accent: 'Tomcat → DispatcherServlet → veritabanı' },
+];
+const v = Math.min(LIST.length, Math.max(1, Number(new URLSearchParams(location.search).get('v') || 1)));
+await kit.ready(["800 40px 'Bricolage Grotesque'", "700 20px 'JetBrains Mono'", "500 20px 'JetBrains Mono'"]);
+let minutes = 9;
+try { const m = await (await fetch('narration/manifest.json')).json(); minutes = Math.round(Object.values(m.lines).reduce((a, l) => a + l.dur + 1.5, 0) / 60); } catch { }
+
+const g = kit.layer(1);
+// drafting paper
+g.fillStyle = C.paper; g.fillRect(0, 0, 1280, 720);
+for (let x = 0; x < 1280; x += 24) { g.fillStyle = x % 120 === 0 ? 'rgba(40,86,184,0.12)' : 'rgba(40,86,184,0.05)'; g.fillRect(x, 0, 1, 720); }
+for (let y = 0; y < 720; y += 24) { g.fillStyle = y % 120 === 0 ? 'rgba(40,86,184,0.12)' : 'rgba(40,86,184,0.05)'; g.fillRect(0, y, 1280, 1); }
+const glow = (x, y, r, col, a = 0.5) => { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, col.replace(')', `,${a})`).replace('rgb', 'rgba')); gr.addColorStop(1, col.replace(')', ',0)').replace('rgb', 'rgba')); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); };
+
+const HERO = {
+  // 1: a wall of auto-configuration candidates, most switched off, and the three condition gates
+  1() {
+    g.save(); g.translate(560, 70); g.rotate(-0.07);
+    const r = rand(11);
+    for (let i = 0; i < 90; i++) {
+      const c = i % 10, row = Math.floor(i / 10), on = r() < 0.28;
+      const x = c * 76, y = row * 44;
+      if (on) glow(x + 30, y + 16, 60, 'rgb(47,138,91)', 0.25);
+      rr(g, x, y, 64, 32, 6); g.fillStyle = on ? C.green : 'rgba(220,212,196,0.9)'; g.fill();
+      g.strokeStyle = on ? '#1E6B43' : 'rgba(28,34,48,0.2)'; g.lineWidth = 1.5; g.stroke();
+    }
+    g.restore();
+    [['@ConditionalOnClass', C.green, '✓'], ['@ConditionalOnProperty', C.green, '✓'], ['@ConditionalOnMissingBean', C.red, '✗']].forEach(([s, col, m], i) => {
+      const x = 640 + i * 205, y = 330 + i * 34;
+      card(g, x, y, 190, 250, { fill: C.sheet, lift: 1.6, r: 12 });
+      g.fillStyle = col; rr(g, x + 20, y + 110, 150, 14, 7); g.fill();
+      text(g, s.replace('@Conditional', '@…'), x + 95, y + 40, { size: 20, font: MONO, weight: 700, color: C.amberDeep, align: 'center', max: 172 });
+      text(g, m, x + 95, y + 185, { size: 72, weight: 800, color: col, align: 'center' });
+    });
+  },
+  // 2: the real clock and the console racing
+  2() {
+    glow(980, 180, 260, 'rgb(226,85,46)', 0.18);
+    text(g, '2.134 s', 1250, 170, { size: 170, font: MONO, weight: 700, color: C.red, align: 'right' });
+    g.save(); g.translate(760, 250); g.rotate(-0.04);
+    terminal(g, 0, 0, 600, 420, { title: 'shop — java' });
+    const L = ['Starting ShopApplication', 'Tomcat initialized: 8080', 'Context initialized', 'HikariPool-1 started', 'Tomcat started on port 8080', 'Started in 2.134 s'];
+    L.forEach((s, i) => {
+      if (i === 4) { g.fillStyle = 'rgba(47,138,91,0.4)'; g.fillRect(12, 64 + i * 56, 576, 44); }
+      text(g, 'INFO', 30, 86 + i * 56, { size: 22, font: MONO, weight: 700, color: '#7FC49B' });
+      text(g, s, 110, 86 + i * 56, { size: 23, font: MONO, max: 470, weight: i >= 4 ? 700 : 500, color: i >= 4 ? '#fff' : C.termText });
+    });
+    g.restore();
+  },
+  // 3: the self-invocation that skips the proxy's gate
+  3() {
+    glow(930, 380, 330, 'rgb(220,158,31)', 0.28);
+    card(g, 640, 120, 600, 470, { fill: 'rgba(220,158,31,0.2)', stroke: C.amber, lw: 6, r: 30, lift: 1.5 });
+    text(g, 'proxy', 675, 150, { size: 28, font: MONO, weight: 700, color: C.amberDeep });
+    card(g, 710, 180, 490, 370, { fill: C.sheet, r: 14 });
+    g.fillStyle = C.red; rr(g, 626, 250, 28, 250, 10); g.fill();
+    card(g, 750, 230, 410, 82, { fill: C.paper2, r: 10, lift: 0.5 });
+    text(g, 'placeOrder()', 780, 272, { size: 34, font: MONO, weight: 700 });
+    card(g, 750, 410, 410, 100, { fill: '#FFF8EA', r: 10, lift: 0.5 });
+    text(g, '@Transactional', 780, 438, { size: 22, font: MONO, weight: 700, color: C.amberDeep });
+    text(g, 'saveAudit()', 780, 476, { size: 34, font: MONO, weight: 700 });
+    arrow(g, [[1160, 272], [1215, 272], [1215, 460], [1168, 460]], { color: C.red, lw: 7, head: 20 });
+    stamp(g, 'işlem yok', 950, 610, 1, { color: C.red, size: 44 });
+  },
+  // 4: the assembly line, the last object wrapped in its amber shell
+  4() {
+    g.save(); g.translate(560, 390);
+    g.fillStyle = C.ink; rr(g, 0, 0, 760, 36, 18); g.fill();
+    g.strokeStyle = 'rgba(255,255,255,0.25)'; g.lineWidth = 3;
+    for (let x = 10; x < 750; x += 44) { g.beginPath(); g.moveTo(x, 8); g.lineTo(x - 10, 28); g.stroke(); }
+    [['new', 70], ['inject', 250], ['BPP', 430]].forEach(([s, x]) => {
+      g.strokeStyle = C.ink; g.lineWidth = 4; g.beginPath(); g.moveTo(x - 70, 0); g.lineTo(x - 70, -210); g.lineTo(x + 70, -210); g.lineTo(x + 70, 0); g.stroke();
+      text(g, s, x, 80, { size: 28, font: MONO, weight: 700, align: 'center' });
+    });
+    bean(g, 'Order…', 20, -100, 110, 80, { size: 22, alpha: 0.5 });
+    bean(g, 'Order…', 195, -100, 110, 80, { size: 22, alpha: 0.75 });
+    g.restore();
+    glow(1080, 300, 250, 'rgb(220,158,31)', 0.35);
+    bean(g, 'OrderService', 940, 230, 280, 130, { proxy: 1, size: 32, sub: 'singleton', lift: 1.6 });
+    pill(g, 'proxy', 1080, 190, { size: 30, fill: C.amber, color: '#3A2800' });
+  },
+  // 5: the request packet passing the DispatcherServlet
+  5() {
+    g.save(); g.strokeStyle = C.shade; g.lineWidth = 14; g.lineCap = 'round'; g.beginPath(); g.moveTo(520, 400); g.lineTo(1280, 400); g.stroke(); g.restore();
+    for (let i = 0; i < 12; i++) { g.fillStyle = `rgba(226,85,46,${0.05 + i * 0.04})`; rr(g, 560 + i * 26, 386, 26, 28, 6); g.fill(); }
+    card(g, 900, 150, 170, 480, { fill: '#EDF2FC', stroke: C.blue, lw: 6, lift: 1.5 });
+    g.save(); g.translate(985, 390); g.rotate(-Math.PI / 2);
+    text(g, 'DispatcherServlet', 0, 0, { size: 40, font: MONO, weight: 700, align: 'center', color: C.blue });
+    g.restore();
+    glow(880, 400, 120, 'rgb(226,85,46)', 0.5);
+    rr(g, 850, 370, 60, 60, 14); g.fillStyle = C.red; g.fill();
+    pill(g, 'GET /orders/42', 700, 330, { size: 26, fill: C.ink });
+    card(g, 1110, 250, 150, 300, { fill: C.sheet, lift: 1.2 });
+    text(g, '{"id":42}', 1185, 400, { align: 'center', size: 26, font: MONO, weight: 700, color: C.green });
+  },
+};
+HERO[v]();
+const L = LIST[v - 1];
+kit.brand({ title: L.title, accent: L.accent, topic: 'YAZILIM', minutes, tint: v === 3 || v === 4 ? '#DC9E1F' : '#E2552E' });
+window.__thumbs = { count: LIST.length, list: LIST.map(({ id, title }) => ({ id, title })) };
+window.__thumbReady = true;
+</script></body></html>

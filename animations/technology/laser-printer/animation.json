@@ -1,0 +1,8 @@
+{
+  "slug": "laser-printer",
+  "title": "Yazıcının İçinde",
+  "description": "Renkli lazer yazıcı ve fotokopi kesit hâlinde: tambur, lazer, toner, fırın, tarayıcı ve kopyadan kopyaya biriken kayıplar",
+  "tech": "Three.js 0.186 · Vite · GPU baskı/kopya simülasyonu · Web Audio",
+  "build": "npm run build",
+  "output": "dist"
+}

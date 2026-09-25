@@ -1,0 +1,27 @@
+{
+  "name": "animasyon-studyo",
+  "private": true,
+  "type": "module",
+  "description": "Eğitim animasyonları deposu: her animasyon animations/ altında kendi başına bir proje.",
+  "scripts": {
+    "new": "node tools/new-animation.mjs",
+    "build": "node tools/build-site.mjs",
+    "avatars": "node tools/avatars.mjs",
+    "voice": "node tools/voice.mjs",
+    "video": "node tools/render-video.mjs",
+    "thumbnail": "node tools/thumbnail.mjs",
+    "verify": "node tools/verify-purity.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
+    "@gltf-transform/functions": "^4.5.0",
+    "meshoptimizer": "^1.2.0",
+    "puppeteer-core": "^23.11.1",
+    "sharp": "^0.35.4",
+    "three": "^0.170.0"
+  }
+}

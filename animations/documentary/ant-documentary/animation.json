@@ -1,0 +1,9 @@
+{
+  "slug": "ant-documentary",
+  "title": "Karıncanın Gözünde Hayat · Belgesel Sürümü",
+  "description": "Biyoloji belgeseli: aynı karınca belgeseli, belgesel anlatım skilli ve gerçekçilik araştırmasıyla yeniden: uzun objektif, gerçek çayır ışığı, sahneyi kıran çiy damlaları, dur-kalk yürüyüş ve kahraman odaklı anlatım.",
+  "format": "documentary",
+  "tech": "Babylon.js 9 · PBR · HDRI · alan derinliği · Vite",
+  "build": "npm run build",
+  "output": "dist"
+}

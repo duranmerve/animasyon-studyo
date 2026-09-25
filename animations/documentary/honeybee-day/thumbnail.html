@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Bal Arısının Bir Günü · kapaklar</title>
+<style>html,body{margin:0;background:#000}#root{position:relative;width:1280px;height:720px;overflow:hidden}#root canvas{position:absolute;inset:0;width:1280px;height:720px}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="module">
+// Covers: the hero picture is a clean frame of the film itself (rendered by its own code into
+// thumbs/, see dev/thumbframes.mjs), placed with its weight on the right; the channel kit adds
+// the shared identity (left panel, mark, title, accent line, duration).
+import * as kit from '/_kit/kit.js';
+const COVERS = [
+  { id: 'dans', img: 'dance.jpg', title: 'KARANLIKTA *DANS*', accent: 'Çiçeğin yerini görmeden anlatıyor', shift: 0.15, zoom: 1.35, cy: 0.5, tint: '#8B5CF6' },
+  { id: 'gok', img: 'sky.jpg', title: 'GÖKTE *GİZLİ* HARİTA', accent: 'Bulutta bile güneşi buluyor', shift: 0.12, zoom: 1.1, cy: 0.45, tint: '#8B5CF6' },
+  { id: 'goz', img: 'split.jpg', title: 'ARI NE *GÖRÜR*?', accent: 'Bizim göremediğimiz renkler', shift: 0.18, zoom: 1.35, cy: 0.5, tint: '#D9A441' },
+  { id: 'yuz', img: 'face.jpg', title: 'SON *HAFTASI*', accent: 'Bir toplayıcı arının bir günü', shift: 0.22, zoom: 1.3, cy: 0.45, tint: '#D9A441' },
+  { id: 'isi', img: 'heater.jpg', title: 'KOVANIN *İÇİ*', accent: 'Kaslarıyla ısıtan arılar', shift: 0.2, zoom: 1.2, cy: 0.5, tint: '#D9A441' },
+];
+const v = Math.max(1, Math.min(COVERS.length, Number(new URLSearchParams(location.search).get('v')) || 1));
+const c = COVERS[v - 1];
+const img = new Image(); img.src = 'thumbs/' + c.img;
+await img.decode();
+const ctx = kit.layer();
+// cover the frame, zoomed, focal point pushed to the right
+const s = Math.max(kit.W / img.width, kit.H / img.height) * c.zoom;
+const w = img.width * s, h = img.height * s;
+ctx.drawImage(img, kit.W / 2 - w / 2 + kit.W * c.shift, kit.H / 2 - h * c.cy, w, h);
+kit.brand({ title: c.title, accent: c.accent, topic: 'BELGESEL', minutes: 6, tint: c.tint });
+await kit.ready();
+window.__thumbs = { count: COVERS.length, list: COVERS.map(x => ({ id: x.id, title: x.title.replace(/\*/g, '') })) };
+window.__thumbReady = true;
+</script>
+</body>
+</html>

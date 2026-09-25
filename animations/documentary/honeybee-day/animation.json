@@ -1,0 +1,9 @@
+{
+  "slug": "honeybee-day",
+  "title": "Bal Arısının Bir Günü",
+  "description": "Doğa belgeseli: hayatının son haftasındaki bir toplayıcı bal arısının şafaktan geceye bir günü. Gökyüzünü pusula yapması, polarize ışık, bizim göremediğimiz ultraviyole çiçek desenleri, eve giden ok, karanlık kovanda sallanım dansı ve nektarın bala dönüşmesi.",
+  "format": "documentary",
+  "tech": "Three.js · özel toon/ramp shader'lar · arı gözü altıgen mozaik post efekti · prosedürel arı, ıhlamur, çayır ve petek · Web Audio · Vite",
+  "build": "npm run build",
+  "output": "dist"
+}

@@ -1,0 +1,89 @@
+:root {
+  --paper: #F2EDE3; --ink: #1C2230; --ink2: #5E6575; --red: #E2552E; --amber: #DC9E1F;
+  --sans: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', Consolas, monospace;
+  --sub-bottom: 78px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+canvas { display: block; position: fixed; inset: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* subtitles: no box, a soft dark fade at the bottom, shadowed white words appearing as they are spoken */
+#subs {
+  position: fixed; left: 0; right: 0; bottom: 0; padding: 44px 16px var(--sub-bottom); text-align: center;
+  pointer-events: none; z-index: 3;
+  background: linear-gradient(to bottom, rgba(18,20,28,0), rgba(18,20,28,0.55) 45%, rgba(18,20,28,0.78));
+  font-size: clamp(17px, 1.45vw, 23px); line-height: 1.42; font-weight: 500; color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.75), 0 0 14px rgba(0,0,0,0.45);
+}
+body[data-cc="s"] #subs { font-size: clamp(15px, 1.2vw, 19px); }
+body[data-cc="l"] #subs { font-size: clamp(20px, 1.8vw, 28px); }
+#subs.off { display: none; }
+#subs div { max-width: 34em; margin: 0 auto; }
+#subs .w { display: inline-block; opacity: 0; transform: translateY(5px); filter: blur(3px); transition: opacity .28s ease, transform .32s ease, filter .3s ease; }
+#subs .w.on { opacity: 1; transform: none; filter: none; }
+body.idle #subs { padding-bottom: 28px; transition: padding .4s; }
+#subs { transition: padding .3s; }
+
+/* controls */
+#controls { position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; padding: 0 16px 10px; color: #fff; transition: opacity .35s; }
+body.idle #controls { opacity: 0; pointer-events: none; }
+#controls .row { display: flex; align-items: center; gap: 4px; height: 44px; }
+#controls button { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 8px; opacity: .88; }
+#controls button:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+#controls svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#play .i-play path { fill: #fff; }
+#play .i-pause { display: none; }
+body.playing #play .i-play { display: none; }
+body.playing #play .i-pause { display: block; }
+.tog { position: relative; }
+.tog:not(.on) { opacity: .45 !important; }
+.tog:not(.on)::after { content: ''; position: absolute; width: 26px; height: 2px; background: #fff; transform: rotate(-40deg); }
+#controls .txt { width: auto; padding: 0 8px; font: 700 15px var(--mono); }
+#time { font: 500 14px var(--mono); margin-left: 8px; opacity: .85; white-space: nowrap; }
+.grow { flex: 1; }
+#track { position: relative; height: 18px; cursor: pointer; touch-action: none; }
+#track::before { content: ''; position: absolute; left: 0; right: 0; top: 8px; height: 3px; background: rgba(255,255,255,0.28); border-radius: 2px; }
+#fill { position: absolute; left: 0; top: 8px; height: 3px; background: var(--red); border-radius: 2px; }
+#fill::after { content: ''; position: absolute; right: -6px; top: -4.5px; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+#ticks i { position: absolute; top: 5px; width: 2px; height: 9px; background: rgba(255,255,255,0.55); }
+#tip { position: absolute; bottom: 22px; transform: translateX(-50%); font: 600 13px var(--sans); background: var(--ink); padding: 4px 8px; border-radius: 5px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s; }
+#track:hover #tip { opacity: 1; }
+#menuwrap { position: relative; }
+#menu { position: absolute; right: 0; bottom: 48px; background: var(--ink); border-radius: 10px; padding: 12px; display: none; min-width: 230px; }
+#menu.open { display: block; }
+#menu b { font-size: 13px; opacity: .7; font-weight: 600; }
+#sizes { display: flex; gap: 6px; margin-top: 8px; }
+#sizes button { width: auto !important; padding: 0 10px; height: 32px !important; border: 1px solid rgba(255,255,255,0.3); font-size: 14px; }
+#sizes button.on { background: #fff; color: var(--ink); }
+
+/* start screen */
+#start { position: fixed; inset: 0; z-index: 6; display: grid; place-items: center; padding: 16px; background: radial-gradient(ellipse at center, rgba(242,237,227,0.78), rgba(242,237,227,0.93) 70%); transition: opacity .6s, visibility .6s; }
+#start.gone { opacity: 0; visibility: hidden; }
+.panel { max-width: 640px; text-align: left; }
+.kicker { font: 600 14px var(--mono); color: var(--red); letter-spacing: .04em; margin: 0 0 10px; }
+h1 { font-size: clamp(44px, 8vw, 84px); line-height: .95; margin: 0 0 18px; font-weight: 800; letter-spacing: -0.02em; }
+.lede { font-size: clamp(17px, 2.1vw, 21px); line-height: 1.5; color: var(--ink2); margin: 0 0 26px; }
+.lede code { font: 600 .9em var(--mono); color: var(--ink); background: rgba(220,158,31,0.2); padding: 1px 5px; border-radius: 4px; }
+#go { display: inline-flex; align-items: center; gap: 12px; font: 800 22px var(--sans); background: var(--ink); color: var(--paper); padding: 16px 30px 16px 24px; border-radius: 12px; box-shadow: 4px 7px 0 rgba(70,52,24,0.2); transition: transform .15s; }
+#go:hover { transform: translate(-1px, -2px); }
+#go span { color: var(--red); font-size: 18px; }
+.meta { font: 500 15px var(--mono); color: var(--ink2); margin: 18px 0 4px; }
+.keys { font-size: 14px; color: var(--ink2); opacity: .8; margin: 0; }
+
+#hint { position: fixed; top: 12px; left: 16px; right: 16px; z-index: 5; background: var(--ink); color: #fff; font-size: 15px; padding: 10px 14px; border-radius: 10px; text-align: center; opacity: 0; transform: translateY(-10px); transition: .4s; pointer-events: none; }
+#hint.show { opacity: 1; transform: none; }
+
+body.video #controls, body.video #start, body.video #hint { display: none; }
+body.video #subs { padding-bottom: 36px; font-size: 30px; }
+
+@media (max-width: 600px) {
+  #subs { font-size: 15px; padding-bottom: 76px; }
+  body[data-cc="s"] #subs { font-size: 13px; }
+  body[data-cc="l"] #subs { font-size: 17px; }
+  #controls .row { gap: 0; }
+  #controls button { width: 36px; }
+  #time { font-size: 12px; }
+  .keys { display: none; }
+}

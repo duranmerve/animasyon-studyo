@@ -1,0 +1,48 @@
+{
+  "source": "C:/Users/Eyüp/Desktop/cafe-avatars-glb",
+  "generator": "Avaturn (hub.avaturn.me), glTF 2.0, 54 kemikli tek iskelet",
+  "avatars": [
+    {
+      "id": "set-01-f02",
+      "gender": "female",
+      "age": 29,
+      "look": "Alçak topuz, koyu kahve saç; siyah deri ceket, beyaz tişört, kot"
+    },
+    {
+      "id": "set-01-f03",
+      "gender": "female",
+      "age": 47,
+      "look": "Omuz hizasında kül sarısı saç; fiyonklu beyaz bluz, gri pantolon"
+    },
+    {
+      "id": "set-01-f10",
+      "gender": "female",
+      "age": 42,
+      "look": "Arkaya toplanmış siyah saç; fiyonklu beyaz bluz, gri pantolon"
+    },
+    {
+      "id": "set-01-m01",
+      "gender": "male",
+      "age": 24,
+      "look": "Kısa düz kestane saç; kahverengi deri ceket, siyah pantolon"
+    },
+    {
+      "id": "set-01-m02",
+      "gender": "male",
+      "age": 32,
+      "look": "Kısa dalgalı koyu saç, sakal; beyaz gömlek, kot"
+    },
+    {
+      "id": "set-02-f02",
+      "gender": "female",
+      "age": 26,
+      "look": "Kısa kestane saç; koyu tişört, koyu kot"
+    },
+    {
+      "id": "set-02-f10",
+      "gender": "female",
+      "age": 58,
+      "look": "Kısa gümüş rengi saç; koyu tişört, koyu kot"
+    }
+  ]
+}

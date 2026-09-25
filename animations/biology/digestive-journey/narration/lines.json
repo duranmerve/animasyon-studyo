@@ -1,0 +1,156 @@
+{
+ "voice": "omni-kadin-genc",
+ "speed": 0.92,
+ "out": "narration/voice",
+ "url": "voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "intro",
+   "say": "Bir kafede, bir tabak fıstıklı lokum ve bir bardak çay. Bir parçayı başparmak ve işaret parmağıyla alıyor. Birazdan bu besinin vücuttaki yolculuğu başlayacak. Ağız açılıyor; öndeki kesici dişler onu ısırıp keser. Dudaklar kapanır, çene kasları çalışır; azı dişleri besini öğütür. İçeriden bakalım: dil lokmayı dişlerin arasına iter, tükürük onu yumuşatır. Sonra lokma yutağa, oradan yemek borusuna iner. Şimdi minik bir kamera olup besinle birlikte ağızdan içeri giriyoruz.",
+   "marks": [
+    0,
+    56,
+    159,
+    213,
+    280,
+    404
+   ]
+  },
+  {
+   "id": "mouth",
+   "say": "Kesici dişler besini keser; dil onu hemen azı dişlerinin arasına iter. Azı dişleri bir değirmen gibi çalışır: besin ezilir, küçük parçalara ayrılır. Tükürük bezleri devreye girer. Tükürükteki amilaz enzimi nişastayı daha ağızdayken parçalamaya başlar. Parçalar tükürükle yoğrulup yumuşak bir top olur. Buna lokma ya da bolus denir. Dil lokmayı damağa bastırıp geriye, boğaza doğru iter.",
+   "marks": [
+    0,
+    71,
+    149,
+    252,
+    332
+   ]
+  },
+  {
+   "id": "pharynx",
+   "say": "Yutkunma başladı. Bundan sonrası isteğimiz dışında, refleksle olur. Yumuşak damak yükselip burun yolunu kapatır. Gırtlak kapağı, yani epiglot, soluk borusunun üstüne kapanır; lokma yanlış yola sapamaz. Bu sırada nefes bir anlığına durur. Lokma yemek borusuna kayar.",
+   "marks": [
+    0,
+    68,
+    113,
+    202
+   ]
+  },
+  {
+   "id": "eso",
+   "say": "Yemek borusu, yaklaşık yirmi beş santimetrelik kaslı bir tüp. Arkadaki kaslar kasılır, öndekiler gevşer: bu dalgaya peristaltizm denir. Bu yüzden baş aşağı dursanız bile yutabilirsiniz; yerçekimine ihtiyaç yok. Sonunda mide ağzındaki kapı, yani alt yemek borusu sfinkteri, açılıyor.",
+   "marks": [
+    0,
+    62,
+    136,
+    211
+   ]
+  },
+  {
+   "id": "stomach",
+   "say": "Mideye ulaştık. İçerisi asidik mide özsuyuyla dolu. Hidroklorik asit, midenin pe ha değerini bir buçuk ile üç buçuğa indirir; mikropların çoğu burada ölür. Tükürükteki amilaz bu asitte etkisini yitirir. Pepsin enzimi ise fıstıktaki proteinleri parçalar. Mide duvarı dalga dalga kasılıp içeriği çalkalar. Besin artık kimus denen koyu bir bulamaç. Mide kapısı, yani pilor, aralanır ve kimusu azar azar ince bağırsağa bırakır.",
+   "marks": [
+    0,
+    52,
+    156,
+    254,
+    346
+   ]
+  },
+  {
+   "id": "duo",
+   "say": "İnce bağırsağın ilk bölümü: onikiparmak bağırsağı. Adı, uzunluğunun yaklaşık on iki parmak eni olmasından gelir. Karaciğerin ürettiği safra ve pankreas özsuyu buraya dökülür. Pankreastan gelen bikarbonat asidi nötrler; safra ise yağları küçük damlacıklara böler. Pankreas amilazı, nişasta zincirlerini ikili şeker parçalarına, yani maltoza, keser.",
+   "marks": [
+    0,
+    113,
+    175,
+    263
+   ]
+  },
+  {
+   "id": "jejunum",
+   "say": "İnce bağırsak yaklaşık altı ile yedi metre uzunluğunda; sindirim kanalının en uzun bölümü. İç yüzeyi milyonlarca parmaksı çıkıntıyla kaplı: villuslar, yani bağırsak tüyleri. Bu kıvrımlar ve tüyler sayesinde emilim yüzeyi yaklaşık otuz metrekareye, küçük bir odanın tabanı kadar alana ulaşır. Şimdi bir villusa yaklaşıp moleküllerin dünyasına iniyoruz.",
+   "marks": [
+    0,
+    91,
+    174,
+    292
+   ]
+  },
+  {
+   "id": "absorb",
+   "say": "Villusun yüzeyi mikrovillus denen çok daha küçük tüylerle kaplı. Artık mikrometre ölçeğindeyiz. Besindeki sofra şekeri, yani sükroz, sükraz enzimiyle ikiye ayrılıyor: glikoz ve fruktoz. Kahramanımız artık bu glikoz molekülü. Sodyumla birlikte özel bir kapıdan hücreye giriyor. Hücrenin içinden geçip karşı uçtaki glut iki kapısından dışarı çıkıyor. Ve kılcal damara giriyor. Besindeki şeker artık kanda!",
+   "marks": [
+    0,
+    96,
+    186,
+    277,
+    349
+   ]
+  },
+  {
+   "id": "liver",
+   "say": "Bağırsaktan gelen kan önce kapı toplardamarıyla karaciğere taşınır. Alyuvarlar, akyuvarlar, glikozlar ve diğer besinler birlikte akıyor. Karaciğer hücreleri fazla glikozu yakalayıp glikojen adlı dallı zincirler halinde depolar. Fruktozun büyük kısmı da burada işlenir. Bizim glikoz ise yoluna devam ediyor.",
+   "marks": [
+    0,
+    68,
+    137,
+    228
+   ]
+  },
+  {
+   "id": "lungs",
+   "say": "Akciğer kılcalları o kadar incedir ki alyuvarlar tek sıra halinde geçer. Hava keseciklerindeki, yani alveollerdeki, oksijen kana geçer; alyuvarlar parlak kırmızıya döner. Karbondioksit ise kandan çıkıp nefesle dışarı atılır. Glikozumuz burada sadece yolcu.",
+   "marks": [
+    0,
+    73,
+    171
+   ]
+  },
+  {
+   "id": "heartR",
+   "say": "Karaciğerden çıkan kan alt ana toplardamarla kalbe ulaşıyor. Burası sağ kulakçık. Vücudun dört bir yanından gelen, oksijeni azalmış kan burada toplanır. Üç yapraklı kapakçık, yani triküspit, açılıyor; sağ karıncığa geçiyoruz. Karıncık kasılıyor! Kan, akciğer atardamarına fırlatılıyor.",
+   "marks": [
+    0,
+    61,
+    153,
+    226
+   ]
+  },
+  {
+   "id": "heartL",
+   "say": "Oksijen yüklü kan akciğer toplardamarlarıyla sol kulakçığa döner. İki yapraklı mitral kapakçıktan sol karıncığa iniyoruz. Sol karıncık kalbin en güçlü odasıdır. Kasılınca kan aorta fışkırır. Aort kavsinden ayrılan şah damarına sapıyoruz: rota beyin!",
+   "marks": [
+    0,
+    66,
+    122,
+    191
+   ]
+  },
+  {
+   "id": "brain",
+   "say": "Şah damarı boyunca yukarı, beyne tırmanıyoruz. Beyindeki kılcal damarlar özel bir duvarla korunur: kan-beyin bariyeri. Astrosit hücreleri bu duvarı sarar. Glikoz, glut bir adlı kapıdan geçerek beyin dokusuna giriyor. Bir nöron glikozu içeri alıyor; mitokondriler onu yakıp a te pe enerjisi üretiyor. Bu enerjiyle elektrik sinyalleri ateşlenir: bir düşünce, bir anı, bir tat… Beyin vücut ağırlığının yalnızca yüzde ikisi kadardır ama enerjinin yaklaşık yüzde yirmisini kullanır. Az önce yediğin besin, şu an bir düşünceye güç veriyor.",
+   "marks": [
+    0,
+    47,
+    155,
+    217,
+    300,
+    375,
+    478
+   ]
+  },
+  {
+   "id": "colon",
+   "say": "Peki besinin geri kalanı? Fıstığın lifleri gibi sindirilemeyen kısımlar kalın bağırsağa ulaşır. Burada trilyonlarca bakteri yaşar. Lifleri mayalayıp vücuda faydalı kısa zincirli yağ asitleri üretirler. Kalın bağırsak içerikteki suyun büyük kısmını geri emer; atık yavaş yavaş katılaşır. Yolculuğun son durağı rektum. Bir iki gün içinde geriye kalanlar vücuttan atılır.",
+   "marks": [
+    0,
+    96,
+    202,
+    287
+   ]
+  }
+ ]
+}

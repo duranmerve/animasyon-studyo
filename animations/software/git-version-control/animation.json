@@ -1,0 +1,8 @@
+{
+  "slug": "git-version-control",
+  "title": "Git Hattı: Sürüm Kontrolü",
+  "description": "Git ile sürüm kontrolü bir metro haritası üzerinde: commit, dal, birleştirme, çakışma, push ve pull.",
+  "tech": "Canvas 2D · Web Audio · prosedürel hat haritası",
+  "build": "node build.mjs",
+  "output": "dist"
+}

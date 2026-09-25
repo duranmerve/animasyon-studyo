@@ -1,0 +1,8 @@
+{
+  "slug": "spring-boot-internals",
+  "title": "Spring Boot'un İçi",
+  "description": "SpringApplication.run() satırının arkasındaki iki saniye ağır çekimde: konteyner, bean yaşam döngüsü, otomatik yapılandırma, proxy'ler ve bir HTTP isteğinin yolculuğu.",
+  "tech": "Canvas 2D · Web Audio · kod ve teknik çizim yan yana",
+  "build": "node build.mjs",
+  "output": "dist"
+}

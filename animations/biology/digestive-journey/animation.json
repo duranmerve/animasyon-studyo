@@ -1,0 +1,50 @@
+{
+  "slug": "digestive-journey",
+  "title": "Sindirim Yolculuğu",
+  "description": "Bir besinin ağızdan mideye, bağırsaklara, kana ve beyne uzanan yolculuğunu anlatan etkileşimli 3D animasyon.",
+  "tech": "Three.js r170 · WebGL · Web Audio · Avaturn GLB karakter",
+  "build": "node build.mjs",
+  "output": "dist",
+  "lang": "tr",
+  "page": {
+    "stopWord": "durak",
+    "hud": {
+      "camera": "Kapsül kamera",
+      "temp": "37,0 °C",
+      "subject": "Besin"
+    },
+    "start": {
+      "eyebrow": "Sindirim · Dolaşım · Beyin",
+      "titleHtml": "Sindirim <em>Yolculuğu</em>",
+      "lede": "Ağızdaki ilk ısırıktan beyindeki ilk kıvılcıma kadar: bir besini, yanında yolculuk eden minik bir kameradan izleyin. Her durakta ne olduğunu, hangi organda olduğunuzu ve ne kadar sürdüğünü göreceksiniz.",
+      "button": "Yolculuğa başla"
+    },
+    "end": {
+      "eyebrow": "Yolculuk tamamlandı",
+      "titleHtml": "Bir ısırık, <em>on üç durak</em>",
+      "creditHtml": "Tüm sahneler tarayıcıda, kodla üretildi: Three.js · WebGL · Web Audio.<br>Claude Opus 5.5 ile tasarlandı ve kodlandı.<br>Eğitim amaçlıdır; ölçekler ve süreler yaklaşıktır."
+    }
+  },
+  "scenes": [
+    "body-map.js",
+    "sweet.js",
+    "cafe.js",
+    "upper-tract.js",
+    "stomach.js",
+    "intestine.js",
+    "absorption.js",
+    "blood.js",
+    "heart.js",
+    "brain.js",
+    "colon.js",
+    "finale.js",
+    "main.js"
+  ],
+  "embed": {
+    "AVATAR_GLB_B64": "assets/avatar.glb"
+  },
+  "video": {
+    "endHold": 12,
+    "narration": true
+  }
+}

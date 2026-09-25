@@ -1,0 +1,72 @@
+{
+ "voice": "omni-kadin-genc",
+ "speed": 0.92,
+ "out": "public/voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "intro",
+   "say": "Bilgisayarında hiç böyle bir klasör oldu mu? Ödev son. Ödev son iki. Ödev gerçekten son. Hangisi en yenisi? Dün sildiğin paragraf hangisinde kaldı? İki arkadaş aynı dosyayı değiştirince kimin hâli kalacak? Bu karmaşayı çözen bir araç var: Git. Birazdan bu dağınık dosyaları tek bir hatta dizeceğiz. Hattın her durağı, projenin bir anı olacak."
+  },
+  {
+   "id": "history",
+   "say": "Hikâye iki bin beş yılında başlıyor. Binlerce gönüllünün birlikte yazdığı linuks çekirdeği, o güne kadar ücretsiz kullandığı ticari bir sürüm kontrol aracını kaybediyor. linuksun yaratıcısı Linus Torvalds, kendi aracını yazmaya üç nisanda başlıyor. yedi nisanda, yani dört gün sonra, Git kendi kodunu kendisi saklamaya başlıyor. Bugün anketlerde yazılımcıların yüzde doksandan fazlası Git kullandığını söylüyor. Küçük bir not: Git, senin bilgisayarında çalışan bir araç. githab gibi siteler ise Git depolarını internette saklayan hizmetler. İkisi aynı şey değil."
+  },
+  {
+   "id": "repo",
+   "say": "Elif ile Can, bilim şenliği için küçük bir oyun yazıyor: Yıldız Avcısı. Şimdilik ikisi de Elif'in bilgisayarında çalışıyor. Proje klasöründe üç dosya var. Elif bu klasörde git init komutunu çalıştırıyor ve içinde gizli bir nokta git klasörü beliriyor. İşte depo bu: projenin bütün geçmişi bu klasörde, Elif'in kendi bilgisayarında duruyor. İnternete bile gerek yok."
+  },
+  {
+   "id": "stage",
+   "say": "Git'te bir dosya üç yerden birinde olabilir. Çalışma klasörü, dosyaları düzenlediğin masan. Hazırlık alanı, fotoğraf çekilmeden önce kadraja girenlerin durduğu sahne. Depo ise çekilen fotoğrafların albümü. Elif, git ed komutuyla oyunun üç dosyasını sahneye çıkarıyor. Not dosyası ise masada kalıyor. Bir sonraki fotoğrafa neyin gireceğini sen seçersin; bu ara adım bunun için var."
+  },
+  {
+   "id": "commit",
+   "say": "Şimdi deklanşöre basma zamanı: git komit. Git, sahnedeki dosyaların o anki hâlini bir fotoğraf gibi saklıyor. Fotoğrafın arkasına bir not düşülüyor: kim çekti, ne zaman çekti ve kısa bir açıklama. Her komite bir de kimlik veriliyor: içeriğinden hesaplanan, kırk karakterlik bir parmak izi. Günlük kullanımda ilk yedi karakteri yeter. Haritamızın ilk durağı da böylece doğuyor."
+  },
+  {
+   "id": "snapshot",
+   "say": "Can oyuna bir skor tablosu ekliyor ve yeni bir komit yapıyor. Çoğumuz Git'in yalnızca değişen satırları, yani farkları sakladığını sanırız. Aslında Git her komitte projenin tamamının fotoğrafını çeker. Peki bu yer israfı değil mi? Değil, çünkü değişmeyen dosyalar yeniden kopyalanmaz. Yeni fotoğraf, onların depoda zaten duran hâlini gösterir. Yalnızca değişen oyun dosyası yeni olarak saklanır."
+  },
+  {
+   "id": "chain",
+   "say": "Bir komit daha: gökyüzüne yıldızlar ekleniyor. Her komit, kendinden önceki komitin kimliğini de içinde taşır. Buna ebeveyn denir. Böylece komitler geriye doğru uzanan bir zincir oluşturur. Bir deneme yapalım: ilk komitteki tek bir harfi gizlice değiştirelim. Onun parmak izi değişir. Onu içinde taşıyan sonraki komitin parmak izi de değişir, ondan sonrakinin de. Bu yüzden geçmiş, fark edilmeden değiştirilemez."
+  },
+  {
+   "id": "time",
+   "say": "Git, şu an nerede durduğunu hed adlı bir işaretle bilir. Haritadaki buradasınız noktası gibi. Elif ilk sürümü merak ediyor ve git çekaut ile o durağa gidiyor. Klasördeki dosyalar bir anda o günkü hâline dönüyor: skor yok, yıldızlar yok. Sonra git suviç meyn ile en yeni hâle geri dönüyor. Hiçbir şey kaybolmadı; bütün duraklar hâlâ haritada."
+  },
+  {
+   "id": "branch",
+   "say": "Elif oyuna bir kalkan eklemek istiyor, ama çalışan sürümü bozmak istemiyor. Bunun için yeni bir dal açıyor: git suviç tire ce kalkan. Dal deyince projenin bir kopyası akla gelebilir. Oysa dal, yalnızca bir komiti gösteren küçük bir etikettir. Diskte kırk bir baytlık bir dosya: kırk karakterlik parmak izi ve bir satır sonu. hed artık kalkan dalını gösteriyor. Elif yeni komitler yaptıkça kalkan etiketi de onlarla birlikte ilerliyor. meyn ise olduğu yerde bekliyor."
+  },
+  {
+   "id": "ff",
+   "say": "Kalkan hazır. Elif meyn dalına dönüyor ve git mörç kalkan diyor. meynden sonra yeni bir komit yapılmamış; yol dümdüz tek bir çizgi. Bu durumda Git yeni bir şey üretmez, yalnızca meyn etiketini ileri kaydırır. Buna ileri sarma, İngilizcesiyle fast forvırd denir."
+  },
+  {
+   "id": "merge",
+   "say": "Şimdi yollar ayrılıyor. Elif, ses adlı bir dalda oyuna müzik ekliyor. Aynı sırada Can, meyn dalında bir başlık ekranı hazırlıyor. Hat ikiye ayrıldı. Can ses dalını birleştirmek istediğinde Git üç fotoğrafa bakar: iki dalın ayrıldığı ortak ata ve iki dalın son hâlleri. Değişiklikler farklı yerlerde olduğu için Git hepsini kendisi birleştirir ve iki ebeveyni olan bir birleştirme komiti oluşturur. Tıpkı iki hattın buluştuğu bir aktarma durağı gibi."
+  },
+  {
+   "id": "conflict",
+   "say": "Bazen iki yol aynı yere dokunur. Elif, kolay mod dalında geminin hızını üçe düşürüyor. Can ise meyn dalında aynı satırı sekiz yapıyor. Birleştirme zamanı gelince Git duruyor: aynı satır için iki farklı cevap var ve hangisinin doğru olduğunu bilemez. Çakışma bir hata ya da bozulma değildir. Git yalnızca kararı bir insana bırakır."
+  },
+  {
+   "id": "resolve",
+   "say": "Git, dosyaya iki hâli de yazar ve araya işaretler koyar. Küçüktür işaretlerinin altında senin dalındaki hâl var. Eşittir çizgisi ikisini ayırır. Büyüktür işaretlerinin üstünde ise birleştirilen dalın hâli. Elif ile Can konuşup ikisini de kapsayan bir çözüm yazıyor: kolay modda hız üç, normalde sekiz. İşaretler siliniyor. Sonra git ed ve git komit. Birleştirme tamam; hat yeniden tek."
+  },
+  {
+   "id": "remote",
+   "say": "Buraya kadar her şey tek bir bilgisayardaydı. Ekip için internette ortak bir depo açılıyor; buna uzak depo denir. Elif bütün geçmişi oraya gönderiyor. Can da git klon ile bu depoyu kendi bilgisayarına kopyalıyor. Gelen yalnızca son hâl değil, bütün harita, bütün geçmiş. Kopyalandığı yerin adı da varsayılan olarak orijin. Yani her bilgisayarda tam bir kopya var. Git bu yüzden dağıtık bir sistemdir."
+  },
+  {
+   "id": "sync",
+   "say": "Can evde yeni bir seviye ekleyip komit ediyor. Bu komit şimdilik yalnızca Can'ın bilgisayarında. Bu sırada Elif de kendi değişikliğini git puş ile uzak depoya gönderiyor. Can da göndermeye çalışıyor, ama uzak depo reddediyor: orada Can'ın bilmediği yeni bir komit var. Can önce git pul yapıyor. pul aslında iki adımdır: feç ile yenilikleri indirir, mörç ile kendi işiyle birleştirir. Şimdi git puş başarılı. Elif de bir pul yaptığında üç kopyanın haritası yine aynı olur."
+  },
+  {
+   "id": "summary",
+   "say": "Hadi yolculuğu toparlayalım. komit, projenin bir fotoğrafıdır. Dal, bir komiti gösteren küçük bir etikettir. mörç iki yolu birleştirir; aynı satır iki kez değiştiyse son söz senindir. puş ve pul ise haritayı ekip arkadaşlarınla paylaşır. Artık ödev son, ödev son iki diye dosya çoğaltmana gerek yok. Bütün geçmiş tek bir hatta, istediğin durakta seni bekliyor."
+  }
+ ]
+}

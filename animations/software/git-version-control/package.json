@@ -1,0 +1,9 @@
+{
+  "name": "git-version-control",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lines": "node tools/lines.mjs",
+    "build": "node build.mjs"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "fall-of-constantinople",
+  "title": "İstanbul'un Fethi",
+  "description": "Bin yıllık surlar elli üç günde nasıl aşıldı? 1453 kuşatması, canlanan bir minyatür harita üzerinde adım adım.",
+  "tech": "Canvas 2D · prosedürel minyatür harita · Web Audio",
+  "build": "node build.mjs",
+  "output": "dist"
+}

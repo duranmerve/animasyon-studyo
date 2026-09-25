@@ -1,0 +1,68 @@
+{
+ "voice": "omni-erkek-derin",
+ "speed": 0.95,
+ "out": "public/voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "intro",
+   "say": "Şu satıra bir bak: spring eplikeyşın nokta ran. Bir sınıf, bir meyn metodu ve bu tek satır. Çalıştırıyorsun, ve yaklaşık iki saniye sonra konsolda şu yazıyor: tomket, sekiz bin seksen portunda başladı. Sen hiçbir sunucu kurmadın, hiçbir nesneyi nyu ile yaratmadın. Peki o iki saniyede ne oldu? Bu videoda o anı bin kat yavaşlatıp içini açacağız."
+  },
+  {
+   "id": "spring",
+   "say": "Önce bir ayrım yapalım. spring, iki binlerin başından beri cava dünyasının temel çatısı: nesneleri yöneten bir konteyner, üstünde de veb, veri erişimi ve güvenlik modülleri. Ama bir spring uygulamasını ayağa kaldırmak eskiden uzun iks em el dosyaları, ayrıca kurulan bir sunucu ve bolca ayar demekti. spring but, bu yükü üstlenmek için geldi. Yeni bir çatı değil: altta yine aynı spring çalışıyor. but yalnızca onu senin yerine, akıllı ve değiştirilebilir varsayılanlarla kuruyor."
+  },
+  {
+   "id": "container",
+   "say": "Her şeyin merkezinde bir kap var: eplikeyşın kontekst, yani uygulama bağlamı. Normalde bir nesneye ihtiyacın olduğunda onu kendin nyu ile yaratırsın. springde bu işi konteyner yapar; buna kontrolün tersine çevrilmesi denir. Konteynerin yönettiği her nesneye bin diyoruz. Ama konteyner nesneleri hemen üretmez. Önce her biri için bir tarif çıkarır: hangi sınıf, hangi kapsam, neye bağımlı. Bu tarifin adı bin definişın. Nesneler ancak bütün tarifler hazır olduktan sonra, sırayla üretilir."
+  },
+  {
+   "id": "di",
+   "say": "Peki bu nesneler birbirini nasıl buluyor? Diyelim ki ordır kontrolır bir ordır sörvis istiyor; ordır sörvis de bir ordır ripozitori ve bir peymınt klayınt istiyor. Sen yalnızca kurucu metotta neye ihtiyacın olduğunu yazıyorsun. Konteyner bağımlılık grafiğini çıkarır ve en alttan başlar: önce ripozitori ve istemci, sonra servis, en son kontrolır. Her nesneyi kurarken gereken parçayı içine takar. Buna bağımlılık enjeksiyonu diyoruz. Sınıfın tek bir kurucu metodu varsa et otovayırd yazmana bile gerek yok. bir de uyarı: a, beyi; be de a’yı istiyorsa, ikisinden hangisi önce kurulacak? Hiçbiri. spring but böyle bir döngüde uygulamayı hiç başlatmaz; döngüsel bağımlılık varsayılan olarak yasaktır."
+  },
+  {
+   "id": "lifecycle",
+   "say": "Bir binin doğumu tek adımda olmaz. Onu bir montaj bandı gibi düşün. Önce kurucu metot çağrılır ve çıplak nesne oluşur. Sonra bağımlılıkları doldurulur. Ardından bin post prosesır denen işçiler nesneyi elden geçirir; araya, et post konstrakt ile işaretlediğin başlangıç metodu girer. Son istasyonda önemli bir şey olabilir: işlemci nesneyi olduğu gibi bırakmak yerine, onu saran bir vekil, yani proksi döndürebilir. Konteynere kaydedilen artık bu vekildir. et trenzekşınıl, et eysink, et keşıbıl gibi notasyonların hepsi bu kapıdan çalışır. Ve varsayılan kapsam singılton: her binden uygulama boyunca tek bir tane olur."
+  },
+  {
+   "id": "annotation",
+   "say": "Şimdi ana sınıfa dönelim. Üstündeki et spring but eplikeyşın notasyonunu açarsan, içinden üç notasyon çıkar. et spring but konfigüreyşın: bu sınıf bir yapılandırma sınıfıdır, içinde bin tanımlayabilirsin. et komponent sken: bu sınıfın paketinden başla, alt paketleri tara, işaretli sınıfları bul. et enebıl oto konfigüreyşın: gerisini but halletsin. Burada sık düşülen bir tuzak var: tarama yalnızca ana sınıfın paketinden aşağı iner. Ana paketin dışına koyduğun bir servis hiç bulunmaz, ve uygulama o bini bulamadığını söyleyerek durur."
+  },
+  {
+   "id": "autoconfig",
+   "say": "Sihir sandığımız şeyin asıl yeri burası. butun her modülünde oto konfigüreyşın nokta impörts adında bir dosya var. İçinde aday sınıfların bir listesi durur. Hepsi birlikte yüzü aşkın aday. but bunların her birini koşullarla sınar. et kondişınıl on klas: şu sınıf klaspette var mı? tomketin sınıfları yoksa, veb sunucusu yapılandırması hiç devreye girmez. et kondişınıl on propırti: ayarlarda şu özellik açık mı? Ve en önemlisi et kondişınıl on mising bin: kullanıcı bu türde bir bini zaten tanımlamış mı? Senin tanımların her zaman önce işlenir. Kendi deyta sorsunu tanımladıysan, but geri çekilir ve kendi varsayılanını kurmaz. Yani bu iş bir tahmin değil, bir koşullar zinciri."
+  },
+  {
+   "id": "starters",
+   "say": "Peki klaspete ne gireceğine kim karar veriyor? Sen, bağımlılıklarla. spring but startır veb em vi si gibi bir startır, kendi başına neredeyse boş bir pakettir. Asıl işi bir bağımlılık demeti getirmek: spring em vi si, gömülü tomket, ceksın. pom dosyasına bir satır eklersin, klaspet değişir, ve koşullar bu kez başka türlü sonuçlanır. İçeride ne olduğunu görmek istersen, uygulamayı tire tire dibag bayrağıyla başlat. but sana koşulların değerlendirildiği bir rapor basar: hangi yapılandırma neden çalıştı, hangisi neden çalışmadı, tek tek."
+  },
+  {
+   "id": "run",
+   "say": "Artık ran metodunu ağır çekimde izleyebiliriz. Birinci adım: ortamı hazırla. Komut satırı, ortam değişkenleri ve ayar dosyaları birleşip tek bir envayırınmınt olur. İkinci adım: uygulamanın türüne karar ver. klaspette sörvlet varsa, bu bir sörvlet veb uygulamasıdır. Üçüncü adım: bağlamı oluştur ve rifreş et. İşin kalbi burası. Önce yapılandırma sınıfları okunur, tarama yapılır, otomatik yapılandırmalar eklenir ve bütün tarifler çıkar. Sonra işlemciler kaydedilir, ve gömülü tomket yaratılır. Ardından bütün singılton binler üretilir. En sonunda tomket portu açar. Dördüncü adım: komand layn ranır ve eplikeyşın ranırlar çalışır. Ve eplikeyşın redi ivent yayınlanır. Uygulama hazır."
+  },
+  {
+   "id": "request",
+   "say": "uygulama ayakta. şimdi bir istek gelsin: get, orders, kırk iki. istek önce tomkete ulaşır. tomket onu havuzdaki bir iş parçacığına verir; varsayılan olarak en çok iki yüz tane. Bu iş parçacığı, isteği baştan sona taşıyacak. Önce filtre zincirinden geçer. spring sekyuriti de aslında buradaki bir filtredir. Sonra tek bir kapıya varır: dispeçır sörvlet. spring em vi sideki bütün istekler, bu ön kontrolcüden geçer. dispeçır sörvlet hendlır mepinge sorar: bu adres kimin? Cevap: ordır kontrolırdaki get ordır metodu. argüman çözücüler adresteki kırk ikiyi okur, long tipine çevirir ve metodu çağırır."
+  },
+  {
+   "id": "data",
+   "say": "kontrolır servise gider. Ama dikkat: elindeki servis gerçek nesne değil, onu saran proksi. Metot et trenzekşınıl olduğu için proksi önce bir işlem başlatır, sonra gerçek servise geçer. Servis ripozitoriyi çağırır. ordır ripozitoriyi sen yazmadın: yalnızca bir arayüz tanımladın, spring deyta onun gerçekleştirmesini çalışma anında üretti. faynd bay ay di, haybırneyt üzerinden es kü ele çevrilir. Bağlantı hikari si pi havuzundan ödünç alınır; havuzda varsayılan olarak on bağlantı var. Sorgu veritabanına gider, satır döner, bağlantı havuza geri bırakılır. proksi işlemi onaylar. kontrolırın döndürdüğü cava nesnesini ceksın ceysına çevirir, ve yanıt aynı yoldan geri döner. Bütün bu yolculuk çoğu zaman birkaç milisaniye sürer."
+  },
+  {
+   "id": "selfcall",
+   "say": "proksiyi anlamak, en sık görülen hatalardan birini de açıklar. Dışarıdan gelen çağrı önce proksiye uğrar; işlem orada başlar. Ama aynı sınıfın içindeki bir metot, et trenzekşınıl işaretli komşusunu dis üzerinden çağırırsa, işlem başlamaz. Çünkü çağrı proksiye hiç uğramaz, doğrudan nesnenin içinde kalır. Notasyon orada, ama onu uygulayan kapı atlanmıştır. Çözüm, o metodu başka bir bine taşımak, ya da işlemi dışarıdaki çağrıda başlatmak."
+  },
+  {
+   "id": "config",
+   "say": "Tek bir car dosyası, farklı ortamlarda farklı davranmalı. but bunun için ayarları katman katman okur. En altta, carın içindeki eplikeyşın propırtiz var. Üstüne profil dosyası gelir, örneğin eplikeyşın prod. Onun üstünde ortam değişkenleri, en üstte de komut satırı argümanları. Bir anahtar birden çok katmanda varsa, en üstteki kazanır. sörvır port adlı ortam değişkeni sörvır port ayarını ezer; gevşek bağlama sayesinde yazım farkı sorun olmaz. Ayarları tek tek okumak yerine et konfigüreyşın propırtiz ile bir sınıfa bağlayabilirsin; böylece tip güvenliği ve doğrulama da kazanırsın."
+  },
+  {
+   "id": "jar",
+   "say": "Son durak paketleme. meyvın ya da greydıl eklentisi, uygulamanı tek bir çalıştırılabilir car yapar. İçinde senin sınıfların, bütün bağımlılık carları, ve küçük bir başlatıcı var. cava tire car dediğinde önce bu başlatıcı çalışır, iç içe carlardan klaspeti kurar ve senin meyn metodunu çağırır. tomket zaten içeride olduğu için sunucuya ayrıca tomket kurmana gerek yok. ekçueytır eklersen uygulama kendini de anlatır: helt, metriks, info gibi uç noktalarla sağlığını ve ölçümlerini dışarı açar."
+  },
+  {
+   "id": "outro",
+   "say": "Başa dönelim. O iki saniyede but ortamı okudu, ana paketini taradı, adayları koşullarla eledi, tarifleri çıkardı. Nesneleri bağımlılık sırasıyla üretti, gerekenleri proksi ile sardı, tomketi başlattı ve kapıyı açtı. Sihir yok. Bir konteyner, bir koşullar zinciri, ve iyi seçilmiş varsayılanlar. Hepsinin üzerine yazabilirsin. Bir dahaki hatada nereye bakacağını artık biliyorsun."
+  }
+ ]
+}

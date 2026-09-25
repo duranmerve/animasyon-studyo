@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bal Arısının Bir Günü</title>
+<meta name="description" content="Bir toplayıcı bal arısının son haftasından bir gün: gökyüzünü pusula yapması, bizim göremediğimiz renklerde çiçek bulması ve gördüğünü kovanın karanlığında dans ederek anlatması.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23120C08'/%3E%3Cpath d='M32 10l19 11v22L32 54 13 43V21z' fill='none' stroke='%23D9A441' stroke-width='4'/%3E%3Cpath d='M22 38 L32 26 L42 38' fill='none' stroke='%238B5CF6' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Commissioner:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="view" aria-label="Animasyon sahnesi"></canvas>
+  <svg id="fg" aria-hidden="true"></svg>
+  <div id="subshade"></div>
+  <div id="subs" aria-live="off"></div>
+
+  <div id="start">
+    <div class="start-inner">
+      <div class="kicker">BELGESEL · BİR GÜNÜN SAATLERİ</div>
+      <h1>Bal Arısının<br>Bir Günü</h1>
+      <p class="lede">Hayatının son haftasındaki bir toplayıcı arı: gökyüzünü pusula yapıyor, bizim göremediğimiz renklerde çiçek buluyor ve gördüğünü kovanın zifiri karanlığında dans ederek anlatıyor.</p>
+      <p class="latin">Apis mellifera · toplayıcı işçi</p>
+      <button id="go" disabled><span class="tri"></span><span class="lbl">Hazırlanıyor…</span></button>
+      <div class="meta"><span id="dur">6 dakika</span> · sesli anlatım · altyazı</div>
+      <div id="prep"><div></div></div>
+    </div>
+  </div>
+
+  <div id="bar" class="hidden">
+    <div id="progress"><div class="segs"></div><div class="hover"></div></div>
+    <div class="row">
+      <button id="bPlay" title="Oynat / duraklat (boşluk)" aria-label="Oynat"></button>
+      <button id="bPrev" title="Önceki bölüm (←)" aria-label="Önceki bölüm"></button>
+      <button id="bNext" title="Sonraki bölüm (→)" aria-label="Sonraki bölüm"></button>
+      <div id="time">0:00 / 0:00</div>
+      <div id="chapName"></div>
+      <div class="sp"></div>
+      <button id="bSpeed" title="Hız" aria-label="Hız">1×</button>
+      <button id="bCC" title="Altyazı (C)" aria-label="Altyazı">CC</button>
+      <button id="bVoice" title="Anlatım sesi (N)" aria-label="Anlatım sesi"></button>
+      <button id="bSet" title="Altyazı boyutu" aria-label="Ayarlar">Aa</button>
+      <button id="bFull" title="Tam ekran (F)" aria-label="Tam ekran"></button>
+    </div>
+    <div id="setMenu" class="hidden">
+      <div class="h">Altyazı boyutu</div>
+      <button data-size="s">Küçük</button><button data-size="m">Orta</button><button data-size="l">Büyük</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

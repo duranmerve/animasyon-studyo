@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Git Hattı: Sürüm Kontrolü</title>
+<meta name="description" content="Git ile sürüm kontrolü bir metro haritası üzerinde: commit, dal, birleştirme, çakışma, push ve pull.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M2 16h28%22 stroke=%22%232350D8%22 stroke-width=%225%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22%23fff%22 stroke=%22%231B1F2A%22 stroke-width=%224%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--paper:#F3EFE6;--ink:#1B1F2A;--muted:#6E7280;--blue:#2350D8;--red:#E63946;--sub:20px;--barH:56px}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:Barlow,'Segoe UI',sans-serif;overflow:hidden;-webkit-tap-highlight-color:transparent}
+canvas{position:fixed;inset:0;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+
+/* subtitles: no box, soft darkening from below, shadowed white words */
+#shade{position:fixed;left:0;right:0;bottom:0;height:max(150px,19vh);pointer-events:none;background:linear-gradient(to top,rgba(16,20,33,.88),rgba(16,20,33,.6) 50%,rgba(16,20,33,0));transition:opacity .4s}
+#subs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--barH) + 20px);width:min(94vw,980px);text-align:center;pointer-events:none;transition:bottom .35s ease,opacity .3s}
+body.idle #subs{bottom:28px}
+#subs .l{display:block;font-weight:600;font-size:max(15px,min(var(--sub),4.4vw));line-height:1.42;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.75),0 0 14px rgba(0,0,0,.45);letter-spacing:.005em}
+#subs .w{display:inline-block;will-change:opacity,transform,filter}
+body.nocc #subs{display:none}
+
+/* controls */
+#bar{position:fixed;left:0;right:0;bottom:0;height:var(--barH);display:flex;align-items:center;gap:6px;padding:0 max(12px,env(safe-area-inset-left)) env(safe-area-inset-bottom);color:#F3EFE6;transition:opacity .35s,transform .35s}
+body.idle #bar{opacity:0;transform:translateY(12px);pointer-events:none}
+.btn{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none}
+.btn:hover{background:rgba(255,255,255,.12)}
+.btn svg{width:22px;height:22px;fill:currentColor}
+.btn.off{opacity:.45}
+.txtbtn{font:700 14px/1 'JetBrains Mono',monospace;width:auto;padding:0 10px}
+#time{font:500 13px 'JetBrains Mono',monospace;opacity:.85;flex:none;min-width:92px;text-align:center}
+#track{position:relative;flex:1;height:40px;cursor:pointer;touch-action:none}
+#track .rail{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:rgba(243,239,230,.28)}
+#track .done{position:absolute;left:0;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:#5B82FF}
+#track .stop{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:#F3EFE6;border:2.5px solid #1B1F2A}
+#track .stop.past{background:#5B82FF}
+#track .knob{position:absolute;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(230,57,70,.3)}
+#tip{position:absolute;bottom:44px;transform:translateX(-50%);white-space:nowrap;background:#1B1F2A;color:#F3EFE6;font:600 13px Barlow,sans-serif;padding:5px 9px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .15s}
+#track:hover #tip{opacity:1}
+#menu{position:fixed;right:12px;bottom:calc(var(--barH) + 8px);background:#1B1F2A;color:#F3EFE6;border-radius:12px;padding:12px 14px;display:none;min-width:220px;font:500 14px Barlow,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+#menu.open{display:block}
+#menu h4{margin:4px 0 6px;font:700 12px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
+#menu .row{display:flex;gap:6px;margin-bottom:10px}
+#menu .row button{flex:1;padding:7px 0;border-radius:8px;background:rgba(255,255,255,.08);font-weight:600}
+#menu .row button.on{background:#2350D8}
+@media (max-width:560px){#time{display:none}.btn{width:36px}#bar{gap:2px}}
+
+/* start screen */
+#start{position:fixed;inset:0;display:grid;place-items:center;background:rgba(243,239,230,.84);backdrop-filter:blur(2px);z-index:5;padding:16px}
+#start .card{max-width:620px;text-align:left}
+#start .badge{display:inline-flex;align-items:center;gap:10px;font:700 15px 'Barlow Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+#start .badge i{width:14px;height:14px;border-radius:50%;border:4px solid var(--blue);background:#fff;display:inline-block}
+#start h1{font:800 clamp(56px,11vw,112px)/.9 'Barlow Condensed',sans-serif;margin:.12em 0 .1em;letter-spacing:-.01em}
+#start h1 span{color:var(--blue)}
+#start p{font:500 clamp(17px,2.2vw,21px)/1.45 Barlow,sans-serif;color:#3A3F4E;margin:0 0 1.2em}
+#go{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);font:700 22px 'Barlow Condensed',sans-serif;letter-spacing:.06em;padding:14px 26px 14px 20px;border-radius:40px}
+#go i{width:22px;height:22px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(230,57,70,.3)}
+#go:disabled{opacity:.5}
+#start small{display:block;margin-top:18px;color:var(--muted);font:500 14px Barlow,sans-serif}
+#start kbd{font:600 12px 'JetBrains Mono',monospace;border:1px solid #c9c2b3;border-bottom-width:2px;border-radius:4px;padding:1px 5px;background:#fff}
+body.video #bar,body.video #start,body.video #subs,body.video #shade,body.video #menu{display:none}
+</style>
+</head>
+<body class="idle">
+<canvas id="c"></canvas>
+<div id="shade"></div>
+<div id="subs"></div>
+<div id="bar">
+  <button class="btn" id="prev" title="Önceki bölüm (Shift+←)"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+  <button class="btn" id="play" title="Oynat / duraklat (boşluk)"><svg viewBox="0 0 24 24"><path id="playIcon" d="M7 4v16l13-8z"/></svg></button>
+  <button class="btn" id="next" title="Sonraki bölüm (Shift+→)"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+  <div id="time">0:00 / 0:00</div>
+  <div id="track"><div class="rail"></div><div class="done"></div><div id="stops"></div><div class="knob"></div><div id="tip"></div></div>
+  <button class="btn txtbtn" id="cc" title="Altyazı (C)">CC</button>
+  <button class="btn" id="narr" title="Anlatım sesi (N)"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></button>
+  <button class="btn txtbtn" id="speed" title="Hız">1×</button>
+  <button class="btn" id="gear" title="Ayarlar"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1l.4 2.6h4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg></button>
+  <button class="btn" id="fs" title="Tam ekran (F)"><svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg></button>
+</div>
+<div id="menu">
+  <h4>Altyazı boyutu</h4>
+  <div class="row" id="sizes"><button data-s="s">Küçük</button><button data-s="m">Orta</button><button data-s="l">Büyük</button></div>
+  <h4>Hız</h4>
+  <div class="row" id="rates"><button data-r="0.75">0,75×</button><button data-r="1">1×</button><button data-r="1.25">1,25×</button><button data-r="1.5">1,5×</button></div>
+</div>
+<div id="start">
+  <div class="card">
+    <div class="badge"><i></i> 16 durak · yaklaşık 6,5 dakika</div>
+    <h1>Git <span>Hattı</span></h1>
+    <p>Bir projenin bütün geçmişi tek bir hatta: commit, dal, birleştirme, çakışma, push ve pull. Sesli anlatım ve altyazılı.</p>
+    <button id="go" disabled><i></i> Başlat</button>
+    <small><kbd>boşluk</kbd> oynat/duraklat · <kbd>←</kbd><kbd>→</kbd> 5 sn · <kbd>Shift</kbd>+<kbd>←</kbd><kbd>→</kbd> bölüm · <kbd>C</kbd> altyazı · <kbd>N</kbd> anlatım · <kbd>F</kbd> tam ekran</small>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

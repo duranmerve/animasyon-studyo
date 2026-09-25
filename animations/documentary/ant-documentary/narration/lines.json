@@ -1,0 +1,60 @@
+{
+ "voice": "omni-erkek-yasli-derin",
+ "speed": 0.9,
+ "out": "public/voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "acilis",
+   "say": "Sabah. Çimenlerin dibinde, gözümüzün hiç inmediği bir yerde bir dünya uyanıyor. Şu kayalar, aslında kum taneleri. Şu yeşil kuleler, birer çim yaprağı. Ve yuvanın ağzında, bu dünyanın sakinlerinden biri beliriyor. Boyu dört beş milimetre. Akşam olmadan yuvaya geri dönebilecek mi?"
+  },
+  {
+   "id": "olcek",
+   "say": "Onun ölçeğinde her şey değişir. Karıncayı bir insan boyuna büyütseydik, yedi buçuk santimlik bu çim yaprağı otuz metreyi aşan bir kule olurdu. On katlı bir bina. İri bir kum tanesi, belimize gelen bir kaya. Bu çiy damlası ise neredeyse onun boyunda bir su küresi. Önünde uzun bir yol var."
+  },
+  {
+   "id": "beden",
+   "say": "Bu bir işçi, yani bir dişi; yuvadaki işçilerin hepsi dişidir. Okulda böceklerin üç parçadan oluştuğunu öğreniriz: baş, göğüs, karın. Karıncada sınırlar başka yerden geçer. Göğüs sandığımız parçaya, karnın ilk halkası kaynaşmıştır. Biyologlar bu birleşik parçaya mezozoma der. İnce bel ise karnın ikinci halkası. Altı bacağın hepsi mezozomadan çıkar. İskeleti dışında: kitinden bir zırh. Ve akciğeri yok. Hava, yanlardaki minik deliklerden ince borucuklarla bedene yayılır."
+  },
+  {
+   "id": "gozler",
+   "say": "Peki o bizi görebilir mi? Başının iki yanında, parlak iki kubbe var. Her biri, petek gibi dizilmiş minik merceklerden oluşan bir bileşik göz. Her gözde yalnızca yüz kadar mercek. Her mercek, dünyadan tek bir nokta yakalar. Yani karşıdan gelen kardeşini aşağı yukarı böyle görür: bulanık bir nokta mozaiği. Işığı, gölgeyi, bir kıpırtıyı seçer. Ama bir yüzü asla. Bizim gördüğümüzden yüzlerce kat bulanık bir dünya bu."
+  },
+  {
+   "id": "koku",
+   "say": "Onun dünyası gözle değil, antenle kurulur. On iki halkalı, dirsekli iki anten hiç durmadan yoklar. Onlarla koklar, tadar, dokunur; nemi ve titreşimi bile hisseder. Karıncalarda koku alma genlerinin sayısı üç yüzü, dört yüzü bulur; bir meyve sineğinde altmış kadardır. Havada, bizim hiç alamadığımız bir harita asılı duruyor. Yuvanın kokusu. Uzaktaki bir tatlının kokusu. Ve eski yolların izleri."
+  },
+  {
+   "id": "kimlik",
+   "say": "Karşıdan biri geliyor. Durur, antenler uzanır. Her koloninin kendine özgü bir kokusu var; zırhın üstündeki ince, yağlı bir tabakada saklı. Koku tanıdık: bir yuvadaş. Yollar ayrılır. Ama bu yeni gelen, başka bir yuvadan. Çeneler açılır. Karıncalar kimlik kartlarını üzerlerinde taşır."
+  },
+  {
+   "id": "iz",
+   "say": "Ve sonra, bir ödül. Yere dökülmüş tatlı bir damla. Kursağını, yani yuvaya taşıdığı sosyal midesini dolduruyor. Bu tatlının çoğu onun değil, yuvanın. Dönüş yolunda arkasında, bağırsağından gelen görünmez bir koku bırakıyor: bir feromon izi. Yuvada kardeşleri bu izi buluyor. Yiyecek bulan her karınca izi biraz daha tazeliyor. Damla bitince iz yenilenmez; bir saat içinde büyük ölçüde uçup gider. Yol, tam gerektiği kadar yaşar."
+  },
+  {
+   "id": "kisayol",
+   "say": "Kim planlıyor bu yolları? Hiç kimse. Bilim insanları bunu bir laboratuvarda sınadı. Yuvayı yiyeceğe iki köprüyle bağladılar: biri kısa, biri uzun. Başta trafik ikiye bölünür. Ama kısa köprüden gidenler daha çabuk döner, izlerini daha sık tazeler. Koku kısa yolda birikir ve karıncalar giderek oraya kayar. Emir veren bir kraliçe yok. Harita yok. Binlerce küçük karardan akıllıca bir düzen doğuyor. Bunun adı kendiliğinden örgütlenme."
+  },
+  {
+   "id": "guc",
+   "say": "Öğleye doğru bir tohum. Bazı karıncalar kendi ağırlığının onlarca katını taşıyabilir. Bunun sırrı süper bir güç değil; küçüklüğün kendisi. Bir canlıyı iki kat büyütelim. Kaslarının kesiti dört kat artar, ağırlığı ise sekiz kat. Boy büyüdükçe ağırlık, güçten hep daha hızlı büyür. İnsan boyunda bir karınca araba kaldıramazdı. Büyük olasılıkla kendi ağırlığını bile zor taşırdı."
+  },
+  {
+   "id": "fizik",
+   "say": "Küçük olmak fiziği de değiştirir. Bir çim yaprağının ucunda, tek bir yanlış adım. Düşüyor. Ama fazla hızlanamaz; hava onu frenler. Yüksek bir ağaçtan bile düşse çoğu zaman kalkıp yürür. Onun için asıl tehlike su. İri bir yağmur damlası, ondan birkaç kat ağırdır. Ve suyun yüzey gerilimi, küçük bir canlıyı yapışkan bir tuzak gibi tutabilir. Bu yüzden çiy damlasına yaklaşırken temkinli."
+  },
+  {
+   "id": "ciftlik",
+   "say": "Bir bitki sapında, küçük siyah bir sürü: yaprak bitleri. Bitkinin özsuyunu emerler. Bu su şekerce zengin, ama proteince fakir. Fazla şekeri tatlı damlalar hâlinde dışarı atarlar: ballı çiy. Karıncamız bir biti antenleriyle okşuyor. Ve bit, bir damla veriyor. Karşılığında karıncalar sürüyü avcılardan korur. Bir uğur böceği yaklaşıyor, ama fazla oyalanmıyor. İki taraf da kazançlı. Adı mutualizm."
+  },
+  {
+   "id": "yuva",
+   "say": "Akşamüstü. Dolu kursağıyla yuvaya dönüyor. Bugün eve dönmeyi başardı. Toprağın altında, odalardan ve tünellerden bir şehir var. Kraliçe burada. Tek işi yumurtlamak. Laboratuvarda yaşayan bir siyah bahçe karıncası kraliçesi yirmi sekiz yılı aşarak bir rekor kırdı. Yumurtadan larva çıkar, larva ipek bir koza örer. Karınca yumurtası sandığımız bu beyaz taneler, aslında kozadır. Gençler içeride, yavruların başında. Yaşlandıkça dışarı çıkarlar; en tehlikeli iş en yaşlılara düşer. Taşıdığı tatlıyı ağızdan ağıza paylaşıyor. Tek bir toplayıcının getirdiği besin, yüz kadar yuvadaşa ulaşabilir."
+  },
+  {
+   "id": "kapanis",
+   "say": "Onun gözünden dünya, bulanık bir mozaik. Ama kokulardan örülmüş bir harita. Kum tanelerinin kaya, çiy damlalarının tuzak olduğu bir yer. Tek başına küçük bir canlı. Birlikte, planı olmadan yolunu bulan bir zekâ. Şu anda dünyada yaklaşık yirmi katrilyon karınca yaşıyor. Bir dahaki sefere yere baktığınızda, ayağınızın dibindeki bu dünyayı hatırlayın."
+  }
+ ]
+}

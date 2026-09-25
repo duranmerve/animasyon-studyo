@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output (npm run build / build:all) — GitHub Pages builds it in CI
+dist/
+
+# rendered videos and their work files (large; share them outside git)
+renders/
+
+# local scratch
+*.log
+.tmp/
+.DS_Store
+Thumbs.db
+
+# temporary session handoff note
+HANDOFF.md
+
+# python caches (tools/tts)
+__pycache__/

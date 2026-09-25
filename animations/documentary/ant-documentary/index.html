@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Karıncanın Gözünde Hayat</title>
+<meta name="description" content="Bir siyah bahçe karıncasının dünyasına makro bir belgesel: bulanık mozaik gözler, kokulardan bir harita, feromon yolları, lidersiz düzen ve küçüklerin fiziği.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23140f0c'/%3E%3Cellipse cx='22' cy='34' rx='9' ry='7' fill='%23f2c46b'/%3E%3Cellipse cx='36' cy='33' rx='6' ry='5' fill='%23f2c46b'/%3E%3Cellipse cx='48' cy='31' rx='6' ry='6' fill='%23f2c46b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="view" aria-label="Animasyon sahnesi"></canvas>
+  <svg id="lines" aria-hidden="true"></svg>
+  <div id="labels" aria-hidden="true"></div>
+  <div id="panels" aria-hidden="true"></div>
+  <div id="card" aria-live="polite"><div class="num"></div><div class="ttl"></div></div>
+  <div id="scalebar" aria-hidden="true"><div class="bar"></div><div class="txt"></div></div>
+  <div id="subshade"></div>
+  <div id="subs" aria-live="off"></div>
+  <div id="fade"></div>
+
+  <div id="start">
+    <div class="start-inner">
+      <div class="kicker">MAKRO BELGESEL · BİYOLOJİ</div>
+      <h1>Karıncanın<br>Gözünde Hayat</h1>
+      <p class="lede">Boyu dört beş milimetre olan bir siyah bahçe karıncasının peşinde bir gün: bulanık bir göz mozaiği, kokulardan örülmüş bir harita, lidersiz bir düzen ve küçüklerin fiziği.</p>
+      <p class="latin"><i>Lasius niger</i> · işçi</p>
+      <button id="go" disabled><span class="tri"></span><span class="lbl">Hazırlanıyor…</span></button>
+      <div class="meta"><span id="dur">7 dakika</span> · sesli anlatım · altyazı</div>
+      <div id="prep"><div></div></div>
+    </div>
+  </div>
+
+  <div id="bar" class="hidden">
+    <div id="progress"><div class="fill"></div><div class="ticks"></div><div class="hover"></div></div>
+    <div class="row">
+      <button id="bPlay" title="Oynat / duraklat (boşluk)" aria-label="Oynat"></button>
+      <button id="bPrev" title="Önceki bölüm (←)" aria-label="Önceki bölüm">⏮</button>
+      <button id="bNext" title="Sonraki bölüm (→)" aria-label="Sonraki bölüm">⏭</button>
+      <div id="time">0:00 / 0:00</div>
+      <div id="chapName"></div>
+      <div class="sp"></div>
+      <button id="bSpeed" title="Hız" aria-label="Hız">1×</button>
+      <button id="bCC" title="Altyazı (C)" aria-label="Altyazı">CC</button>
+      <button id="bVoice" title="Anlatım sesi (N)" aria-label="Anlatım sesi">🔊</button>
+      <button id="bSet" title="Altyazı boyutu" aria-label="Ayarlar">Aa</button>
+      <button id="bFull" title="Tam ekran (F)" aria-label="Tam ekran">⛶</button>
+    </div>
+    <div id="setMenu" class="hidden">
+      <div class="h">Altyazı boyutu</div>
+      <button data-size="s">Küçük</button><button data-size="m">Orta</button><button data-size="l">Büyük</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

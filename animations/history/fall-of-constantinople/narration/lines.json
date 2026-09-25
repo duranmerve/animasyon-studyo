@@ -1,0 +1,64 @@
+{
+ "voice": "omni-erkek-yasli-derin",
+ "speed": 0.9,
+ "out": "public/voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "question",
+   "say": "Bir şehir düşünün: üç yanı deniz, bir yanı üç kat surla çevrili. Bin yılı aşkın bir süre boyunca pek çok ordu bu surların önüne geldi ve geri döndü. Surları zorla aşabilen tek ordu, bin iki yüz dört yılında Haçlılar oldu; o da kara surlarından değil, Haliç'teki deniz surlarından. Sonra bin dört yüz elli üç baharında yirmi bir yaşında bir padişah geldi, ve şehir elli üç günde düştü. Nasıl? Cevap bir kalede, dev bir topta ve bir gecede tepeleri aşan gemilerde saklı."
+  },
+  {
+   "id": "city",
+   "say": "Bu şehrin adı o zamanlar Konstantinopolis'ti. Üç yüz otuz yılında Roma imparatoru Konstantin onu yeni başkent yaptı. Biz bu devlete Bizans deriz, ama halkı kendini hep Romalı saydı; \"Bizans\" adı, şehir düştükten yaklaşık yüz yıl sonra yaygınlaştı. Bin dört yüz elli üçte imparatorluk, birkaç ada ve Mora'daki topraklar dışında neredeyse yalnızca bu şehirden ibaretti. Bir zamanlar yüz binlerce kişinin yaşadığı şehirde elli binden az insan kalmıştı; surların içinde bağlar, bahçeler, tarlalar vardı."
+  },
+  {
+   "id": "walls",
+   "say": "Şehri karadan koruyan surlara yakından bakalım. Beşinci yüzyılda, imparator ikinci Teodosius zamanında yapılan bu surlar, Haliç'ten Marmara'ya yaklaşık beş virgül yedi kilometre uzanır. Asıl gücü ise kesitinde saklı. Önce yirmi metreden geniş bir hendek. Ardından yaklaşık dokuz metrelik dış sur. En arkada on iki metre yüksekliğinde, beş metreye varan kalınlıkta iç sur, üzerinde de doksan altı kule. Bir saldırgan bu üç katı, ok ve taş yağmuru altında, tek tek aşmak zorundaydı."
+  },
+  {
+   "id": "sultan",
+   "say": "Şimdi karşı tarafa geçelim. İkinci Mehmed, bin dört yüz elli bir yılında, henüz çok gençken, ikinci kez Osmanlı tahtına çıktı. Haritaya bakınca derdini anlamak kolay: Osmanlı toprakları Rumeli'de ve Anadolu'da, iki yakada uzanıyordu. Tam ortada ise iki yakayı birbirinden ayıran bu şehir duruyordu. Şehir, yeni bir Haçlı ordusu için kapı, taht kavgaları için de sığınak olabilirdi. Genç padişah onu almaya kararlıydı."
+  },
+  {
+   "id": "fortress",
+   "say": "İlk hamle şehrin kuzeyinde, Boğaz'da yapıldı. Anadolu yakasında, büyük dedesi Yıldırım Bayezid'in yaptırdığı Anadolu Hisarı zaten vardı. Bin dört yüz elli iki baharında Mehmed tam karşısına yeni bir kale kurdurdu. Kale dört beş ay gibi kısa bir sürede tamamlandı. Burası Boğaz'ın en dar yeridir: iki kıyı arası yaklaşık altı yüz altmış metre. İki kıyıdaki toplar, Boğaz'dan geçmek isteyen gemileri durdurabiliyordu. Kalenin adı da bunu anlatır: Boğazkesen. Bugün ona Rumeli Hisarı diyoruz. Karadeniz'den gelen gemiler artık Osmanlı izni olmadan şehre ulaşamazdı."
+  },
+  {
+   "id": "cannon",
+   "say": "Bu sırada Urban adında, Macaristan'dan gelen bir top dökümcüsü ortaya çıktı. Önce Bizans imparatoruna gitti, ama imparator istediği ücreti ödeyemedi. Urban da Edirne'ye, Mehmed'e geldi ve orada dev bir top döktü. Namlusu sekiz metreye yaklaşıyordu. Attığı taş gülleler yüzlerce kilogram ağırlığındaydı. Onu şehrin önüne getirmek için altmış öküz gerekti. Ama çok yavaştı: bir kez doldurmak saatler sürüyor, günde ancak birkaç atış yapılabiliyordu. Çoğumuz topun ilk kez burada kullanıldığını sanırız. Aslında toplar Avrupa'da yüz yılı aşkın süredir vardı; Osmanlılar da bu şehre karşı bin dört yüz yirmi ikide top kullanmıştı. Yeni olan, bu büyüklükteydi."
+  },
+  {
+   "id": "siege",
+   "say": "Altı Nisan, bin dört yüz elli üç. Osmanlı ordusu kara surlarının önüne dizildi. Padişahın otağı, surların en zayıf sayılan yerinin, Likos vadisinin karşısına kuruldu. Kuşatanların sayısı tartışmalı; tarihçiler genellikle elli ile seksen bin arasında tahmin ediyor. Surların arkasında ise yaklaşık yedi bin savunucu vardı. Aralarında Cenevizli komutan Custinyani ve yanında getirdiği yedi yüz asker de bulunuyordu. Toplar gürledi ve surlar her gün dövülmeye başladı. Ama her gece savunucular yıkılan yerleri toprak, taş ve kazıklarla yeniden kapattı."
+  },
+  {
+   "id": "chain",
+   "say": "Şehrin kuzeyinde, Haliç'e bakan deniz surları vardı. Hatırlarsanız bin iki yüz dörtte şehri düşüren saldırı buradan gelmişti. Bu kez savunucular Haliç'in ağzına, karşıdaki Galata'ya uzanan kalın bir zincir gerdi. Zincirin arkasında gemileri güvendeydi. Yirmi Nisan'da dört gemi Marmara'dan geldi. Osmanlı donanması onları durdurmaya çalıştı, ama yüksek bordalı gemiler, rüzgârın da yardımıyla, saatler süren bir savaştan sonra zincirin arkasına geçmeyi başardı. Şehirde umut yeniden doğdu."
+  },
+  {
+   "id": "overland",
+   "say": "Mehmed'in cevabı, bu kuşatmanın en akılda kalan anı oldu. Zinciri kırmak yerine onu dolaşmaya karar verdi. Galata'nın arkasındaki tepelere kütüklerden bir yol döşendi, kütükler yağlandı. Yirmi bir Nisan'ı yirmi ikiye bağlayan gece, gemiler Boğaz'dan karaya çekildi. Öküzlerin ve insanların gücüyle tepeyi tırmandılar, öbür yamaçtan da Haliç'e indiler. Sabah olduğunda savunucular, yetmiş kadar Osmanlı gemisini Haliç'in içinde gördü. Zincir hiç kırılmamıştı. Ama artık savunucular Haliç kıyısındaki surları da korumak zorundaydı."
+  },
+  {
+   "id": "may",
+   "say": "Haftalar geçti. Az sayıdaki savunucu artık hem kara surlarına hem Haliç'e dağılmıştı. Osmanlılar surların altına tüneller kazdı; savunucular bunları karşı tünellerle bulup çökertti. Toplar Likos vadisinde surlarda büyük gedikler açtı. Gedikler her gece yamanıyordu, ama yamayacak insan azalıyordu. Yirmi iki Mayıs gecesi ay tutuldu; şehirde birçok kişi bunu kötüye yordu. Savunucular yorgun ve uykusuzdu."
+  },
+  {
+   "id": "assault",
+   "say": "Yirmi dokuz Mayıs, gece yarısından sonra. Son saldırı başladı. Önce düzensiz birlikler surlara yüklendi. Ardından Anadolu birlikleri. Şafağa doğru da padişahın en seçkin askerleri, yeniçeriler. Tam o sırada Custinyani ağır yaralandı ve savaş alanından çekildi. Komutanlarının gittiğini gören savunma çözüldü. Osmanlı sancağı surlara dikildi; geleneğe göre bunu ilk yapan Ulubatlı Hasan'dı. Son imparator On Birinci Konstantin de o sabah hayatını kaybetti; nasıl öldüğü kesin bilinmiyor."
+  },
+  {
+   "id": "entry",
+   "say": "Aynı gün öğleden sonra Mehmed şehre girdi ve doğruca Ayasofya'ya gitti. Dokuz yüz yılı aşkın bu yapı camiye çevrildi; ilk cuma namazı bir Haziran'da kılındı. Şehir, dönemin savaş geleneğine göre yağmalandı; binlerce kişi öldü ya da esir alındı. Sonra Mehmed şehri yeniden kurmaya girişti: imparatorluğun dört bir yanından insanlar getirtti, Rum Ortodoks patrikliğini yeniden kurdurdu. Osmanlı başkenti Edirne'den buraya taşındı."
+  },
+  {
+   "id": "meaning",
+   "say": "Üç yüz otuzda başkent olan Doğu Roma, bin yüz yılı aşkın bir süreden sonra sona ermişti. Mehmed kendini Roma'nın mirasçısı saydı ve Kayseri Rum unvanını kullandı. Tarih ona bir ad verdi: Fatih, yani fetheden. Birçok tarihçi bu olayı, Orta Çağ'ı bitirip Yeni Çağ'ı başlatan olaylardan biri sayar. Bir kısmı daha önce, bir kısmı fetihten sonra İtalya'ya giden Bizanslı bilginler, Rönesans'ı besleyen eski Yunan eserlerini de yanlarında götürdü. Bir yanlışı da düzeltelim: surlar toplarla yerle bir edilmedi. Kara surlarının büyük bölümü bugün hâlâ ayakta."
+  },
+  {
+   "id": "answer",
+   "say": "Başta sormuştuk: bin yıllık surlar elli üç günde nasıl aşıldı? Birincisi, Boğaz kesildi ve şehir dışarıdan gelecek yardımdan koparıldı. İkincisi, dev toplar surları her gün dövdü. Üçüncüsü, gemiler karadan Haliç'e indi ve zaten az olan savunucular daha da dağıldı. Dördüncüsü, yorgun savunmaya karşı büyük ve iyi düzenlenmiş son bir saldırı yapıldı. Yani fethi tek bir top ya da tek bir gün getirmedi; plan, teknoloji, cesaret ve sabır birlikte getirdi. Konstantinopolis'in adı zamanla İstanbul oldu."
+  }
+ ]
+}
