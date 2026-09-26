@@ -1,4 +1,10 @@
 {
+ "windows-tolga": {
+  "code": "W1",
+  "label": "Erkek (Windows Tolga, tarayıcı sesi)",
+  "engine": "windows",
+  "voice_name": "Tolga"
+ },
  "omni-erkek-derin": {
   "code": "O9",
   "label": "Erkek, orta yaş, derin",

@@ -1,5 +1,6 @@
 // Local Turkish narration. Voices live in assets/voices/catalog.json:
-//   OmniVoice voices (natural, designed voices; GPU) and the older Piper voice (robotic, fast).
+//   OmniVoice voices (natural, designed voices; GPU), the older Piper voice (robotic, fast) and
+//   Windows system voices (the browser's own voice on Windows, e.g. Tolga; no GPU, no model).
 //   npm run voice -- <slug> [--voice omni-erkek-derin] [--speed 0.88] [--force]
 //   (speed < 1 speaks slower; saved in lines.json like the voice)
 //   npm run voice -- <slug> --words-only   only add word timings to existing clips
@@ -18,6 +19,7 @@ import readline from 'readline';
 import { spawn, spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { findAnimation } from './lib/animations.mjs';
+import { FFMPEG } from './lib/ffmpeg.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VOICES = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets', 'voices', 'catalog.json'), 'utf8'));
@@ -55,7 +57,7 @@ const dir = findAnimation(slug).dir;
 const linesFile = path.join(dir, 'narration', 'lines.json');
 if (!fs.existsSync(linesFile)) { console.log(`${path.relative(ROOT, linesFile)} yok. Animasyon önce seslendirilecek satırları bu dosyaya yazmalı.`); process.exit(1); }
 const spec = JSON.parse(fs.readFileSync(linesFile, 'utf8'));
-const voiceId = flag('voice') || spec.voice || 'omni-erkek-derin';
+const voiceId = flag('voice') || spec.voice || process.env.VOICE || 'windows-tolga';
 const voice = VOICES[voiceId];
 if (!voice) { console.log(`Bilinmeyen ses: ${voiceId} (npm run voice -- voices)`); process.exit(1); }
 if (flag('voice') && flag('voice') !== spec.voice) { spec.voice = voiceId; fs.writeFileSync(linesFile, JSON.stringify(spec, null, 1) + '\n'); }
@@ -69,7 +71,7 @@ const publicBase = spec.url || path.relative(path.join(dir, 'public'), outDir).s
 const refFile = voice.ref ? path.join(ROOT, 'assets', 'voices', voice.ref) : null;
 const speed = Number(flag('speed') || spec.speed || 1);
 if (flag('speed')) { spec.speed = speed; fs.writeFileSync(linesFile, JSON.stringify(spec, null, 1) + '\n'); }
-const voiceKey = JSON.stringify([voiceId, speed, voice.engine, voice.profile, voice.model_dir, voice.voice_name, voice.model_version, voice.num_step, voice.ref_text, refFile && crypto.createHash('sha1').update(fs.readFileSync(refFile)).digest('hex')]);
+const voiceKey = JSON.stringify([voiceId, speed, voice.engine, voice.profile, voice.model_dir, voice.voice_name, voice.model_version, voice.num_step, voice.pitch, voice.ref_text, refFile && crypto.createHash('sha1').update(fs.readFileSync(refFile)).digest('hex')]);
 
 // OmniVoice misreads Turkish capital letters (Ş, Ç, Ğ, Ö, Ü, İ, I) at the start of words; lower-case them.
 const forEngine = s => (voice.engine === 'omnivoice' || voice.engine === 'ema'
@@ -86,20 +88,22 @@ for (const line of (flag('words-only') ? [] : spec.lines)) {
 }
 console.log(`${slug}: ${voice.code} ${voice.label} · hız ${speed} · ${todo.length} satır üretilecek, ${spec.lines.length - todo.length} değişmedi`);
 
-fs.mkdirSync(LAB, { recursive: true });
-const tmp = fs.mkdtempSync(path.join(LAB, 'voice_'));
+const tmpBase = voice.engine === 'windows' ? os.tmpdir() : LAB;
+fs.mkdirSync(tmpBase, { recursive: true });
+const tmp = fs.mkdtempSync(path.join(tmpBase, 'voice_'));
 const wavOf = id => path.join(tmp, `${id}.wav`);
 const problems = [];
 try {
   if (todo.length && WORKERS[voice.engine]) await runWorker(WORKERS[voice.engine]);
   if (todo.length && voice.engine === 'piper') runPiper();
+  if (todo.length && voice.engine === 'windows') await runWindows();
   for (const line of todo) {
     const wav = wavOf(line.id);
     if (!fs.existsSync(wav)) { console.log(`✗ ${line.id} üretilemedi`); process.exit(1); }
     // even loudness across clips, then a compact mono MP3
-    const f = spawnSync('ffmpeg', ['-y', '-v', 'error', '-i', wav, '-af', 'highpass=f=60,loudnorm=I=-17:TP=-1.5:LRA=9,aresample=44100', '-ac', '1', '-b:a', '112k', path.join(outDir, `${line.id}.mp3`)]);
-    if (f.status !== 0) { console.log(`✗ ${line.id}: ffmpeg hata verdi\n${f.stderr}`); process.exit(1); }
-    manifest.lines[line.id] = { file: `${publicBase}/${line.id}.mp3`, dur: Math.round(wavDuration(wav) * 1000) / 1000, hash: line.hash, ...(line.cer !== undefined ? { cer: line.cer } : {}) };
+    const f = spawnSync(FFMPEG, ['-y', '-v', 'error', '-i', wav, '-af', 'highpass=f=60,loudnorm=I=-17:TP=-1.5:LRA=9,aresample=44100', '-ac', '1', '-b:a', '112k', path.join(outDir, `${line.id}.mp3`)]);
+    if (f.status !== 0) { console.log(`✗ ${line.id}: ffmpeg hata verdi\n${f.error || f.stderr}`); process.exit(1); }
+    manifest.lines[line.id] = { file: `${publicBase}/${line.id}.mp3`, dur: Math.round(wavDuration(wav) * 1000) / 1000, hash: line.hash, ...(line.cer !== undefined ? { cer: line.cer } : {}), ...(line.words ? { words: line.words } : {}) };
   }
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
@@ -167,6 +171,30 @@ function runPiper() {
     if (r.status !== 0) { console.log(`✗ ${line.id}: Piper hata verdi\n${r.stderr}`); process.exit(1); }
     console.log(`${String(i + 1).padStart(3)}/${todo.length} ${line.id}`);
   });
+}
+
+// Windows system voice through WinRT (the voice Chrome/Edge speechSynthesis uses). The voice itself
+// reports where each word starts, so these clips get their word timings without Whisper.
+async function runWindows() {
+  const job = path.join(tmp, 'job.json');
+  fs.writeFileSync(job, JSON.stringify({
+    voice: voice.voice_name || 'Tolga', rate: speed, pitch: voice.pitch || null,
+    lines: todo.map(l => ({ id: l.id, text: l.say, out: wavOf(l.id) })),
+  }));
+  const ps = path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'WindowsPowerShell', 'v1.0', 'powershell.exe');
+  const p = spawn(ps, ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(ROOT, 'tools', 'tts', 'windows_tts.ps1'), job], { stdio: ['ignore', 'pipe', 'pipe'] });
+  let err = '', n = 0;
+  p.stderr.on('data', d => { err = (err + d).slice(-4000); });
+  for await (const ln of readline.createInterface({ input: p.stdout })) {
+    if (!ln.startsWith('{')) continue;
+    const r = JSON.parse(ln);
+    if (r.ready) { console.log(`Windows sesi: ${r.ready}`); continue; }
+    const line = todo.find(l => l.id === r.id);
+    line.words = r.words;
+    console.log(`${String(++n).padStart(3)}/${todo.length} ${r.id.padEnd(16)} ${r.dur.toFixed(1)} sn`);
+  }
+  const code = await new Promise(r => p.on('close', r));
+  if (code !== 0) { console.log(`Windows sesi hata verdi:\n${err}`); process.exit(1); }
 }
 
 function wavDuration(file) {

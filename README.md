@@ -60,10 +60,10 @@ Ya da [prompts/new-animation.md](prompts/new-animation.md) dosyasındaki "İSTEK
 
 ## Seslendirme (yerel, ücretsiz)
 
-Anlatım sesleri bu bilgisayarda üretilir; dışarıya hiçbir şey gönderilmez. Dört motor var: **OmniVoice**, **Supertonic 3**, **Chatterbox** ve **EMA-TTS**; hepsinin lisansı ticari kullanıma açık, atıf şartı yok. Sesler sentetiktir, gerçek bir kişiden kopyalanmamıştır. Liste ve açıklama [assets/voices/README.md](assets/voices/README.md) dosyasında.
+Anlatım sesleri bu bilgisayarda üretilir; dışarıya hiçbir şey gönderilmez. **Varsayılan ses `windows-tolga`:** Windows'un kendi Türkçe sesi (tarayıcıların `speechSynthesis` ile kullandığı Microsoft Tolga). Ekran kartı, Python ya da model istemez; kelime zamanlarını sesin kendisi verdiği için Whisper da gerekmez. Ses kurulu değilse: Ayarlar → Zaman ve dil → Konuşma → Ses ekle → Türkçe. Ekran kartlı bilgisayar için dört model motoru daha var: **OmniVoice**, **Supertonic 3**, **Chatterbox** ve **EMA-TTS**; hepsinin lisansı ticari kullanıma açık, atıf şartı yok. Sesler sentetiktir, gerçek bir kişiden kopyalanmamıştır. Liste ve açıklama [assets/voices/README.md](assets/voices/README.md) dosyasında.
 
 ```
-npm run voice -- voices                                  # 19 ses: OmniVoice (O…), Supertonic (S…), Chatterbox (C…), EMA-TTS (E1)
+npm run voice -- voices                                  # 20 ses: Windows (W1), OmniVoice (O…), Supertonic (S…), Chatterbox (C…), EMA-TTS (E1)
 npm run voice -- laser-printer                           # animations/technology/laser-printer/narration/lines.json → public/voice/*.mp3
 npm run voice -- laser-printer --voice omni-kadin-genc   # sesi değiştirir (seçim lines.json'a yazılır)
 ```

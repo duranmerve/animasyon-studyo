@@ -10,7 +10,7 @@ Bu depo bir YouTube kanalının eğitim animasyonlarını üretir. Her video **k
 
 ## 1. Yalnızca kod
 
-Sahne, karakter, hareket, ses efektleri, müzik ve altyazı Claude'un yazdığı kodla üretilir. Üretken görsel/video/ses modeli yok (ücretsiz katmanlar dahil; öneri olarak da geçmez). Anlatım sesi yalnızca yerel TTS (`tools/voice.mjs`). Serbest: ücretsiz CDN kütüphanesi ve yazı tipi, CC0 veri dosyası (HDRI, doku; kaynağı README'ye). Ücretli servis yok; dışarıya veri göndermeden önce sor.
+Sahne, karakter, hareket, ses efektleri, müzik ve altyazı Claude'un yazdığı kodla üretilir. Üretken görsel/video/ses modeli yok (ücretsiz katmanlar dahil; öneri olarak da geçmez). Anlatım sesi yalnızca yerel TTS (`tools/voice.mjs`). **Bu bilgisayarda varsayılan ses `windows-tolga`**: Windows'un kendi Türkçe sesi (Chrome/Edge'in `speechSynthesis` ile okuduğu ses), GPU ve model gerektirmez, kelime zamanlarını sesin kendisi verir. Yeni `lines.json` dosyalarında `"voice": "windows-tolga"` kullan. Serbest: ücretsiz CDN kütüphanesi ve yazı tipi, CC0 veri dosyası (HDRI, doku; kaynağı README'ye). Ücretli servis yok; dışarıya veri göndermeden önce sor.
 
 ## 2. Her video taze bir sanat yönü
 
@@ -45,4 +45,4 @@ Bölüm başına tek ses kaydı; hikâye zamanı kaydı izler, geri gitmez, yük
 
 ## 7. Yerel araçlar
 
-Chrome `C:/Program Files/Google/Chrome/Application/chrome.exe`; ffmpeg PATH'te; OmniVoice + Whisper `C:\ProgramData\tts_lab` (RTX 3050 Ti 4 GB). Ortak araçlar: `tools/voice.mjs`, `tools/render-video.mjs`, `tools/thumbnail.mjs` (+ `assets/thumbnail-kit`, kanal kimliği), `tools/build-site.mjs`, `assets/avatars/` (yalnızca gerçek insan karakteri gerekirse).
+Chrome `C:/Program Files/Google/Chrome/Application/chrome.exe`; ffmpeg PATH'te, yoksa `ffmpeg-static` paketi (`tools/lib/ffmpeg.mjs`). Bu bilgisayarda ekran kartı ve OmniVoice/Whisper **yok**; anlatım Windows Tolga sesiyle (`tools/tts/windows_tts.ps1`). Ortak araçlar: `tools/voice.mjs`, `tools/render-video.mjs`, `tools/thumbnail.mjs` (+ `assets/thumbnail-kit`, kanal kimliği), `tools/build-site.mjs`, `assets/avatars/` (yalnızca gerçek insan karakteri gerekirse).

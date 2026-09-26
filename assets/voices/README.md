@@ -4,6 +4,7 @@ Animasyonların anlatım sesleri. `npm run voice -- <slug> --voice <id>` ile se�
 
 | id | kod | ses | motor |
 |---|---|---|---|
+| `windows-tolga` | W1 | Erkek (Microsoft Tolga, tarayıcı sesi) | Windows |
 | `omni-erkek-derin` | O9 | Erkek, orta yaş, derin | OmniVoice |
 | `omni-erkek-yasli` | O10 | Erkek, yaşlı | OmniVoice |
 | `omni-kadin-genc` | O1 | Kadın, genç | OmniVoice |
@@ -30,6 +31,7 @@ Kurulum `C:\ProgramData\tts_lab` altında; her motorun ayrı bir Python ortamı 
 
 | motor | lisans | ortam | çalışan | not |
 |---|---|---|---|---|
+| Windows (Tolga) | Windows ile gelir | yok (PowerShell + WinRT) | `windows_tts.ps1` | GPU'suz bilgisayarda varsayılan; kelime zamanları sesten gelir, Whisper denetimi yok |
 | OmniVoice | Apache 2.0 | `omni` | `omnivoice_worker.py` | Kısa, temiz bir kayıttan kopyalayarak konuşur (64 adım) |
 | Supertonic 3 | OpenRAIL-M | `stonic` | `supertonic_worker.py` | Hazır sesler, ekran kartı gerekmez |
 | Chatterbox Multilingual | MIT (duyulmayan filigran ekler) | `cbox` | `chatterbox_worker.py` | v2 ve v3 ağırlıkları; kendi sesi ya da bir kaydın tınısı |

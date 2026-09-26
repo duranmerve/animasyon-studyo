@@ -16,6 +16,7 @@ import { spawn, execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer-core';
 import { findAnimation } from './lib/animations.mjs';
+import { FFMPEG } from './lib/ffmpeg.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -75,7 +76,7 @@ fs.writeFileSync(`${base}-chapters.txt`, chapters.map(c => `${stamp(c.t)} ${c.ti
 
 // frames → ffmpeg
 const mp4 = `${base}.mp4`;
-const ff = spawn('ffmpeg', ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-i', wavFile,
+const ff = spawn(FFMPEG, ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-i', wavFile,
   '-c:v', 'libx264', '-preset', 'medium', '-crf', opt('crf', '18'), '-pix_fmt', 'yuv420p', '-r', String(fps),
   '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', mp4], { stdio: ['pipe', 'inherit', 'inherit'] });
 const frames = Math.round(len * fps);
