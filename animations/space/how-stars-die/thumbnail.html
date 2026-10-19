@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><title>Kapaklar · Bir Yıldız Nasıl Ölür?</title></head>
+<body><div id="root"></div>
+<script type="module">
+// YouTube covers: the hero picture is a frame of the animation itself (dist/, video mode), the channel kit adds the rest.
+import * as kit from '/_kit/kit.js';
+const COVERS = [
+  { id: 'supernova', at: 'collapse.boom+2.4', shift: 0.12, title: 'BİR YILDIZ *NASIL* ÖLÜR?', accent: 'Biri söner, biri patlar' },
+  { id: 'iki-yildiz', at: 'open.number+1.6', shift: 0.3, title: 'BİRİ SÖNER, *BİRİ PATLAR*', accent: 'Kararı tek bir sayı veriyor' },
+  { id: 'kasik', at: 'remnant.spoon+1.8', shift: 0.004, title: 'BİR KAŞIĞI *MİLYAR TON*', accent: 'Bir şehir büyüklüğünde yıldız' },
+  { id: 'gunes', at: 'dwarf.name+2', shift: 0.42, title: 'GÜNEŞ *PATLAMAYACAK*', accent: 'Peki ne olacak?' },
+  { id: 'biz', at: 'us.bones+2.6', shift: 0.48, title: 'KANINIZDAKİ *YILDIZ*', accent: 'Demiriniz bir yıldızda yapıldı' },
+];
+const v = Math.max(1, Math.min(COVERS.length, +new URLSearchParams(location.search).get('v') || 1));
+const c = COVERS[v - 1];
+const f = document.createElement('iframe');
+f.src = `dist/index.html?video=1&subs=0&dpr=${kit.DPR}&shift=${c.shift}`;
+Object.assign(f.style, { position: 'absolute', left: 0, top: 0, width: kit.W + 'px', height: kit.H + 'px', border: 0, zIndex: 1 });
+kit.root.appendChild(f);
+await new Promise(r => f.addEventListener('load', r, { once: true }));
+await new Promise(r => { const k = () => (f.contentWindow.__ready ? r() : setTimeout(k, 100)); k(); });
+const w = f.contentWindow, [sid, rest] = c.at.split(/\.(.*)/s);
+const m = rest.match(/^([A-Za-z0-9]+)([+-][\d.]+)?$/);
+const sec = w.__tl.sections.find(s => s.id === sid);
+w.__video.renderAt(sec.cue[m[1]] + (m[2] ? +m[2] : 0));
+kit.brand({ title: c.title, accent: c.accent, topic: 'UZAY', minutes: 8, tint: '#FF6A2B' });
+await kit.ready();
+window.__thumbs = { count: COVERS.length, list: COVERS.map(x => ({ id: x.id, title: x.title.replace(/\*/g, '') })) };
+window.__thumbReady = true;
+</script>
+</body></html>

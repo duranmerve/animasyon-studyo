@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bir Yıldız Nasıl Ölür?</title>
+<meta name="description" content="Siyanotip levhalarda bir yıldızın ölümü: kütle çekimi, füzyon, beyaz cüce, süpernova ve kanımızdaki demir.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23123a6b'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23dcebf2'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23dcebf2' stroke-opacity='.45' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23ff6a2b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#081a33;--pru:#123a6b;--mid:#6f9cc2;--wht:#dcebf2;--pap:#efe6d2;--ora:#ff6a2b}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--ink);overflow:hidden;color:var(--wht);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block}
+#subs{position:fixed;left:0;right:0;bottom:0;padding:0 6vw calc(env(safe-area-inset-bottom) + 4.6vh);text-align:center;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,26,51,.62),rgba(8,26,51,.25) 55%,transparent);min-height:17vh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+#subs.off{display:none}
+#subs .ln{font-weight:500;line-height:1.32;letter-spacing:.005em;text-shadow:0 1px 3px rgba(4,12,26,.9),0 0 14px rgba(4,12,26,.6);white-space:nowrap}
+#subs.s .ln{font-size:clamp(14px,1.6vw,19px)}#subs.m .ln{font-size:clamp(16px,1.95vw,23px)}#subs.l .ln{font-size:clamp(18px,2.4vw,28px)}
+#subs .w{display:inline-block;white-space:pre}
+body.ui-hidden{cursor:none}
+#bar{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(env(safe-area-inset-bottom) + 10px);display:flex;flex-direction:column;gap:8px;
+  background:linear-gradient(to top,rgba(8,26,51,.92),rgba(8,26,51,.0));transition:opacity .35s,transform .35s;z-index:5}
+body.ui-hidden #bar{opacity:0;transform:translateY(8px);pointer-events:none}
+body.ui-hidden #subs{bottom:0}
+#prog{position:relative;height:18px;cursor:pointer;touch-action:none}
+#prog .tr{position:absolute;left:0;right:0;top:8px;height:2px;background:rgba(220,235,242,.22)}
+#prog .fl{position:absolute;left:0;top:8px;height:2px;background:var(--wht)}
+#prog .nt{position:absolute;top:4px;width:1px;height:10px;background:rgba(220,235,242,.5)}
+#prog .hd{position:absolute;top:4px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--ora)}
+#tip{position:absolute;bottom:22px;transform:translateX(-50%);font:12px 'IBM Plex Mono',monospace;background:var(--ink);border:1px solid rgba(220,235,242,.25);padding:3px 7px;white-space:nowrap;display:none}
+.row{display:flex;align-items:center;gap:6px;font:13px 'IBM Plex Mono',monospace}
+.row button{font:inherit;color:var(--wht);background:transparent;border:1px solid rgba(220,235,242,.22);border-radius:3px;min-width:34px;height:32px;padding:0 9px;cursor:pointer}
+.row button:hover{border-color:var(--wht)}
+.row button.off{opacity:.45;text-decoration:line-through}
+.row .sp{flex:1}.row .tm{opacity:.8;padding:0 6px;white-space:nowrap}.row .ch{opacity:.8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:28vw}
+#start{position:fixed;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:0 7vw 14vh;z-index:10;
+  background:linear-gradient(100deg,rgba(8,26,51,.86) 0%,rgba(8,26,51,.55) 38%,rgba(8,26,51,0) 70%)}
+#start .k{font:12px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:var(--mid)}
+#start h1{font:italic 400 clamp(46px,7.4vw,108px)/0.95 'Instrument Serif',Georgia,serif;margin:.18em 0 .22em;color:var(--wht);max-width:12ch}
+#start p{max-width:44ch;line-height:1.5;color:rgba(220,235,242,.82);margin:0 0 1.6em;font-size:clamp(14px,1.3vw,17px)}
+#start button{font:500 15px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--ink);background:var(--pap);border:0;border-radius:2px;padding:14px 26px;cursor:pointer}
+#start button:disabled{opacity:.6;cursor:wait}
+#start .note{font:12px 'IBM Plex Mono',monospace;color:rgba(220,235,242,.55);margin-top:14px}
+@media (max-width:700px){#start{padding:0 22px 12vh;background:linear-gradient(to top,rgba(8,26,51,.92) 0%,rgba(8,26,51,.6) 45%,rgba(8,26,51,0) 75%)} .row .ch{display:none} .row button{min-width:30px;padding:0 7px} #subs{padding-left:4vw;padding-right:4vw;min-height:20vh} #subs .ln{white-space:normal}}
+body.video #bar,body.video #start{display:none!important}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="subs" class="m"><div class="ln" id="l1"></div><div class="ln" id="l2"></div></div>
+<div id="start">
+  <div class="k">UZAY · AÇIKLAYICI · ~8 DK</div>
+  <h1>Bir Yıldız Nasıl Ölür?</h1>
+  <p>Gökyüzünde iki yıldız. Biri sessizce sönecek, öteki patlayıp kanınızdaki demiri saçacak. Hangisinin ne olacağını tek bir sayı belirliyor.</p>
+  <button id="go" disabled>hazırlanıyor…</button>
+  <div class="note">ses açık izleyin · boşluk: oynat/duraklat · C: altyazı · N: anlatım</div>
+</div>
+<div id="bar">
+  <div id="prog"><div class="tr"></div><div class="fl"></div><div class="hd"></div><div id="tip"></div></div>
+  <div class="row">
+    <button id="bPlay" title="Oynat/duraklat (boşluk)">❚❚</button>
+    <button id="bPrev" title="Önceki bölüm">⏮</button>
+    <button id="bNext" title="Sonraki bölüm">⏭</button>
+    <span class="tm" id="tm">0:00 / 0:00</span>
+    <span class="ch" id="ch"></span>
+    <span class="sp"></span>
+    <button id="bSpeed" title="Hız">1×</button>
+    <button id="bCC" title="Altyazı (C)">CC</button>
+    <button id="bSize" title="Altyazı boyutu">A</button>
+    <button id="bNar" title="Anlatım (N)">N</button>
+    <button id="bFull" title="Tam ekran (F)">⛶</button>
+  </div>
+</div>
+<script>/*BUNDLE*/</script>
+</body>
+</html>

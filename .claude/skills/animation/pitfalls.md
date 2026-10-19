@@ -63,6 +63,12 @@ Biçim: **belirti** → neden → çözüm. Her oturum sonunda yeni bulunanlar e
 - **Oyun, program ya da teknik adı yanlış okunuyor** (commit, merge, HEAD…) → OmniVoice İngilizceyi Türkçe gibi okuyor → söylenecek metinde okunuşu yaz (komit, mörç, hed), ekrandaki metin değişmesin.
 - **Türkçe büyük harfle başlayan kelime yanlış okunuyor** → OmniVoice'un bilinen sorunu → `voice.mjs` bunu zaten küçük harfe çeviriyor; elle bir şey yapma.
 
+- **Video modunda anlatım çözülemiyor (`EncodingError: Unable to decode audio data`), `fetch` 204 ve boş gövde dönüyor** → bu makinede sistem düzeyinde bir denetim, tarayıcı süreçlerinin tam ikili indirmelerini (MP3, WAV, rastgele baytlar; Chrome ve Edge, headless ya da değil) önce kendisi çekip 204 döndürüyor; `<audio>` öğesinin aralıklı istekleri ve Node etkilenmiyor. Chrome bayrakları, `--no-proxy-server`, `127.0.0.1` çözmüyor → ses dosyasını oynatıcının yaptığı gibi `fetch(url, { headers: { Range: 'bytes=0-' } })` ile iste. Teşhis: sunucuda her isteği yazdır; engellenen istekte `sec-ch-ua` başlıkları olmayan ikinci bir istemci görünür.
+- **Video ses ve görüntüsü yarıda kesiliyor, ffmpeg `write EOF`** → WAV başlığında 16 bit stereo veri boyutu kare × 2 yazılmış (doğrusu kare × 4); ses yarı uzunlukta görünür, `-shortest` görüntüyü de keser → `bytes = frames * 4`.
+- **Zoom-through'da kâğıt şerit dikeyde de büyüyüp ekranı kaplıyor** → şerit dünya koordinatında çizilmiş → yalnızca x'i dünyadan al, y ve yükseklikleri ekran pikselinde çiz.
+- **Kapakta konu başlığın altına kaçıyor** → kamera kaydırmasının işareti ters (`cam.x - shift` içeriği sola iter) → konuyu sağa almak için pozitif `shift`.
+- **Canvas'ta kullanılan yazı tipi ilk karede yedek yazı tipiyle çiziliyor (verify'da yalnızca ilk kare farklı)** → `document.fonts.ready` yalnızca o ana kadar kullanılan kesimleri bekler; canvas'taki kesimler ilk kullanımda yüklenir → hazır işaretinden önce her kesimi `document.fonts.load('italic 400 30px "…"')` ile açıkça yükle.
+
 ## Video ve kapak
 
 - **`chapters()` metin döndürünce video aracı çöküyor** → `render-video.mjs` `[{ t, title }]` dizisi bekliyor → sözleşmeyi aynen uygula. `srt(from, to)` ve `chapters(from)` aralığa göre kaydırılmış olmalı.

@@ -1,0 +1,52 @@
+{
+ "voice": "windows-tolga",
+ "speed": 0.92,
+ "out": "public/voice",
+ "manifest": "narration/manifest.json",
+ "lines": [
+  {
+   "id": "open",
+   "say": "Gökyüzünde yan yana iki yıldız düşünün. Biri Güneş'imiz kadar. Öteki ondan yirmi beş kat ağır. İkisi de ölecek. Ama biri bir mum gibi sessizce sönecek. Öteki öyle patlayacak ki, birkaç haftalığına bütün bir galaksi kadar parlayacak. Saçtığı tozun bir kısmı, bir gün başka bir gezegende birinin kanında dolaşacak. Hangisinin hangi sonu yaşayacağını tek bir sayı belirliyor. Ama önce, bir yıldızı ayakta tutan şeye bakalım."
+  },
+  {
+   "id": "balance",
+   "say": "Çoğumuz yıldızı yanan bir ateş topu sanırız. Mantıklı: sıcak, parlak, ışık saçıyor. Ama uzayda ateşi besleyecek oksijen yok. Hiçbir ateş de dört buçuk milyar yıl yanmaz. Yıldızın içinde iki güç çekişiyor. Kütle çekimi bütün o gazı her yönden merkeze çekiyor. Merkezde ise sıkışan hidrojen çekirdekleri birbirine kaynaşıp helyuma dönüşüyor. Bu kaynaşmanın adı füzyon. Açığa çıkan enerji gazı ısıtıyor ve dışarı itiyor. İçe çeken ve dışa iten. İkisi denk kaldıkça yıldız ne çöker ne dağılır. Yani bir yıldız yanmıyor. Dengede duruyor. Ve yakıt bittiği gün, çekim kazanmaya başlıyor."
+  },
+  {
+   "id": "mass",
+   "say": "O tek sayı, kütle. Ağır bir yıldızın daha çok yakıtı var. Sezgimiz daha uzun yaşayacağını söyler. Tam tersi oluyor. Ağır yıldızın çekimi merkezini çok daha sert sıkıştırıyor. Merkez daha çok ısınıyor, füzyon hızlanıyor ve yakıt su gibi akıp gidiyor. Güneş gibi bir yıldız on milyar yıl kadar yaşar. Güneş'imiz dört buçuk milyar yaşında. Ömrünün ortasında. Yirmi beş kat ağır bir yıldızın hidrojeni ise yedi milyon yıl kadar dayanıyor. Güneş'in ömrünü bir günlük bir şerit olarak düşünün. Ağır yıldızın bütün hayatı, bu şeridin ilk dakikasına sığar."
+  },
+  {
+   "id": "giant",
+   "say": "Önce hafif olanla, bizim yıldızımızla başlayalım. Beş milyar yıl kadar sonra Güneş'in merkezinde hidrojen azalacak. Çekirdek büzülüp ısınacak ve bu ısı dış katmanları şişirecek. Güneş, bugünkünden yüz kat büyük, soğuk ve kırmızı bir deve dönüşecek. Merkür'ü yutacak. Venüs'ü de. Dünya mı? Bunu bugün kimse kesin bilmiyor. Güneş şişerken kütle de kaybedecek. Çekimi zayıfladıkça gezegenler biraz uzaklaşacak. Bazı hesaplar Dünya'nın yutulduğunu, bazıları kıl payı kurtulduğunu söylüyor. Mars ise güvende."
+  },
+  {
+   "id": "dwarf",
+   "say": "Kırmızı dev uzun yaşamaz. Dış katmanları yavaş yavaş uzaya savrulur. Ortada kalan sıcak çekirdek bu gazı aydınlatır ve on bin yıl kadar parlayan bir kabuk oluşur. Adı gezegenimsi bulutsu. Gezegenlerle ilgisi yok; eski teleskoplarda gezegene benzediği için. Kabuk dağılınca geriye çekirdek kalır. Bir yıldızın kalbi, Dünya büyüklüğünde bir topa sıkışmış. Bu beyaz cüceden bir çay kaşığı alsanız, birkaç ton gelir. Bir fil kadar. İçinde artık füzyon yok. Yalnızca soğuyor. Öyle yavaş soğuyor ki, evren henüz bir tanesinin bile sönmesini görecek kadar yaşlı değil. Güneş'in sonu bu. Patlama yok."
+  },
+  {
+   "id": "onion",
+   "say": "Ağır yıldıza dönelim. Onun da hidrojeni bitince merkezi büzülür. Ama çekimi o kadar güçlü ki, merkezi daha da sıkıştırıp daha da ısıtır. Ve yeni bir yakıt başlar: helyum, karbona dönüşür. O bitince karbon kaynaşır, ardından daha ağır elementler. Her yeni yakıt merkezde yeni bir katman açar. Yıldızın içi bir soğan gibi dizilir. Ama saat hızlanıyor. Hidrojen yedi milyon yıl yetmişti. Karbon yalnızca birkaç yüz yıl. Silisyum ise bir iki gün. Milyonlarca yıllık bir hayatın son sayfası, bir hafta sonundan kısa sürüyor. Ve silisyumun külü demir."
+  },
+  {
+   "id": "iron",
+   "say": "Demir, yıldız için yakıt değil. Kül. Şimdiye kadar her kaynaşma enerji verdi. Demiri kaynaştırmak ise enerji ister. Merkezde demir biriktikçe, dışa iten güç sessizce kayboluyor. Demir çekirdek Dünya'dan küçük, ama Güneş'ten ağır. Ve artık onu hiçbir şey taşımıyor."
+  },
+  {
+   "id": "collapse",
+   "say": "Çöküş saniyenin onda birinden kısa sürüyor. Binlerce kilometrelik çekirdek, birkaç on kilometreye iniyor. Düşerken hızı ışık hızının onda birine yaklaşıyor. Merkez öyle sıkışıyor ki, protonlar elektronları yutup nötrona dönüşüyor. Bu nötron yumağı daha fazla sıkışamaz. Düşen katmanlar ona çarpıp geri sekiyor ve dışarı doğru bir şok dalgası yola çıkıyor. Yıldız patlıyor. Bir süpernova. Tuhaf olan şu: gördüğümüz bütün o ışık, açığa çıkan enerjinin küçük bir kırıntısı. Enerjinin yüzde doksan dokuzunu, neredeyse hiçbir şeye çarpmayan parçacıklar götürüyor. Nötrinolar. Saniyeler içinde, görünmeden."
+  },
+  {
+   "id": "sn1987",
+   "say": "Bin dokuz yüz seksen yedinin şubatında, komşu bir galakside, Büyük Macellan Bulutu'nda bir yıldız böyle öldü. Japonya'da, Amerika'da ve Sovyetler Birliği'nde yerin altındaki dedektörler, on üç saniye içinde iki düzine kadar nötrino yakaladı. Işık ise saatler sonra geldi. İnsanlık bir yıldızın ölümünü, görmeden önce yakalamıştı."
+  },
+  {
+   "id": "remnant",
+   "say": "Bunları gözle de gördük. Bin elli dört yazında Çinli gökbilimciler gökyüzünde yeni bir yıldız kaydetti. Haftalarca gündüz bile göründü. Bugün o noktada genişleyen bir gaz bulutu var: Yengeç Bulutsusu. Ortasında, o yıldızın çekirdeği hâlâ dönüyor. Bir nötron yıldızı. Güneş'ten ağır, ama çapı yirmi kilometre kadar. Bir şehrin üstüne koysanız şehri ancak örter. Ondan bir çay kaşığı, milyarlarca ton gelir. Daha ağır yıldızlarda nötronlar bile çekime dayanamaz. Merkez, ışığın bile kaçamadığı bir noktaya çöker: bir kara delik. Bazı yıldızlar bunu belki patlamadan bile yapıyor. İki bin dokuzda hafifçe parlayan dev bir yıldız, birkaç yıl sonraki fotoğraflarda yoktu. Patlama yok, ışık yok. Gökbilimciler, doğrudan bir kara deliğe çöktüğünü düşünüyor."
+  },
+  {
+   "id": "us",
+   "say": "Peki patlayan yıldızın saçtığı madde nereye gidiyor? Oksijen, kalsiyum, demir. Hepsi uzaya dağılıyor ve yeni gaz bulutlarına karışıyor. Dört buçuk milyar yıl önce, böyle bir buluttan Güneş doğdu. Sonra Dünya. Sonra biz. Kemiklerinizdeki kalsiyum ve kanınızdaki demir, bir yıldızın içinde yapıldı. Bir yüzükteki altının bir kısmı ise büyük ihtimalle iki nötron yıldızının çarpışmasından geldi. Başa dönelim. Gökyüzünde iki yıldız. Hangisinin nasıl öleceğine tek bir sayı karar veriyor: kütle. Hafif olan sessizce söner. Ağır olan patlar ve yeni dünyaların malzemesini saçar. Bir gün Güneş de sönecek. Ama bizi oluşturan madde, ondan çok önce ölen yıldızlardan geldi."
+  }
+ ]
+}

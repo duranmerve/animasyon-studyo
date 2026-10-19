@@ -12,6 +12,10 @@ Amaç **tekrarı önlemek**: yeni bir treatment yazılırken aynı türden önce
 
 - **digestive-journey** (Sindirim Yolculuğu): Three.js, insan avatarı; iç organ yolculuğu; kırmızı/pembe organik palet.
 
+## space (açıklayıcı)
+
+- **how-stars-die** (Bir Yıldız Nasıl Ölür?, 2026-10): WebGL2 tam ekran "pozlama alanı" gölgelendiricisi + Canvas 2D beyaz kalem katmanı; görsel dünya siyanotip levhalar (ışıkla basılan fotoğraf kâğıdı); palet: Prusya mavisi + derin mürekkep + siyan beyazı + kâğıt kreması, tek vurgu füzyon turuncusu (yalnız dışa iten enerji ve patlama); doku: fırçalanmış emülsiyon kenarı, kâğıt lifi, aşırı pozlamada beyazlama, levha katalog numarası ve iğne delikleri; kamera: ışık masasında sabit levha, büyüteç yakınlaşması, yalnız yatayda zoom-through, levha değişimi yenisinin üstüne kaymasıyla; sahne düzeni: iki yıldız → kesit → şerit → yörünge planı → önce/sonra levhası → açılış levhasına dönüş; yazı: Instrument Serif italik + IBM Plex Mono + IBM Plex Sans; ses: Windows Tolga.
+
 ## technology
 
 - **laser-printer** (Yazıcının İçinde): Three.js kesit, GPU benzetimi; makine içi, teknik kesit dili.

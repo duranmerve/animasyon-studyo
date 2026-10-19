@@ -1,0 +1,9 @@
+{
+  "slug": "how-stars-die",
+  "title": "Bir Yıldız Nasıl Ölür?",
+  "description": "Siyanotip levhalarda bir yıldızın ölümü: kütle çekimi ile füzyonun çekişmesi, beyaz cüce, süpernova ve kanımızdaki demir.",
+  "format": "explainer",
+  "tech": "WebGL2 siyanotip gölgelendirici + Canvas 2D kalem katmanı, Web Audio",
+  "build": "node build.mjs",
+  "output": "dist"
+}
